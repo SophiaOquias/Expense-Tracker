@@ -1,0 +1,176 @@
+@font-face {
+    font-family: IBM Plex Mono;
+    src: url(IBMPlexMono-Regular.ttf);
+}
+
+* {
+    padding: 0px; 
+    margin: 0px; 
+    font-family: IBM Plex Mono;
+}
+
+header {
+    background-color: grey;
+    height: 50px;
+}
+
+/* MENU BAR */
+header > a {
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 28px;
+}
+
+header > a:hover {
+    opacity: 50%;
+    transition: 0.3s
+}
+
+#menubar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+  
+  /* The navigation menu links */
+#menubar > a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+}
+  
+  /* When you mouse over the navigation links, change their color */
+#menubar > a:hover {
+    color: black;
+}
+  
+  /* Position and style the close button (top right corner) */
+#menubar > .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#month {
+    margin: 20px;
+    margin-left: 3%;
+}
+
+/* BALANCE */
+
+.quickinfo {
+    width: 30%; 
+    height: 140px;
+    background-color: lightgrey;
+    margin-left: 20px;
+    border-radius: 30px;
+    float: left;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+
+.edit {
+    font-size: 8pt;
+    color: black;
+    float: right;
+    padding-right: 30px;
+}
+
+#balance > h1 {
+    font-size: 16pt;
+}
+
+.typelabel {
+    float: left; 
+}
+
+.amount {
+    float: right;
+    padding-right: 30px; 
+}
+
+/* BUDGET GOAL */
+
+#budgetgoal > h2 {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    font-size: 16pt;
+}
+
+#budgetgoal > h1 {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+}
+
+/* SAVINGS GOAL */
+
+#savingsgoal > h2 {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    font-size: 16pt;
+}
+
+#savingsgoal > h1 {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+}
+
+/* ENTRIES */
+
+.entry {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background-color: lightgrey;
+    width: 95%;
+    height: 70px;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+.entry > .description, .entry > .date {
+    padding-left: 20px;
+}
+
+.entry > .category, .entry > .amount {
+    float: right; 
+    padding-right: 20px;
+}
+
+.entry> .description, .entry > .category {
+    font-size: 30px;
+}
+
+#searchentry, #entries {
+    padding-left: 30px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+#searchbar {
+    padding-top: 20px;
+}
+
+#search {
+    padding-left: 30px;
+    margin-left: 30px;
+    height: 40px;
+    width: 95%;
+    border-radius: 30px;
+}

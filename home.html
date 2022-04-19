@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>Expense Tracker</title>
+        <link rel="stylesheet" href="homestyle.css">
+    </head>
+
+    <body>
+        <script>
+            /* Set the width of the side navigation to 250px */
+            function openNav() {
+                document.getElementById("menubar").style.width = "250px";
+            }
+
+            /* Set the width of the side navigation to 0 */
+            function closeNav() {
+                document.getElementById("menubar").style.width = "0";
+            }
+        </script>
+
+        <header>
+            <a onclick="openNav();">menu</a>
+        </header>
+        
+
+        <div id="menubar">
+            <a onclick="closeNav()">close</a>
+            <a href="menu.html">sample</a>
+        </div>
+
+        <h1 id="month">January</h1>
+
+        <div id="balance" class="quickinfo">
+            <h1>Balance <br>
+                Pxx.xx</h1>
+            <p class="typelabel">
+                Total Expenses <br> 
+                Total Income <br>
+            </p>
+            <span class="amount">
+                Pxx.xx <br>
+                Pxx.xx <br>
+            </span>
+            <br><br><br>
+            <a class="edit" href="google.com">edit</a>
+        </div>
+
+        <div id="budgetgoal" class="quickinfo">
+            <h2>Budget Goal</h2>
+            <h1>Pxx.xx</h1>
+            <a class="edit" href="google.com">edit</a>
+        </div>
+
+        <div id="savingsgoal" class="quickinfo">
+            <h2>Savings Goal</h2>
+            <h1>Pxx.xx</h1>
+            <a class="edit" href="google.com">edit</a>
+        </div>
+
+        <br>
+        <div id="searchbar">
+            <span id="searchentry">Search entry</span> <br>
+            <input id="search"> <br>
+        </div>
+
+        <span id="entries">Entries</span>
+
+        <div id="entry1" class="entry">
+            <span class="description">Item</span>
+            <span class="category">Expense</span>
+            <br>
+            <span class="amount">Pxx.xx</span>
+            <span class="date">January 01, 2001</span>
+
+        </div>
+
+        <div id="entry2" class="entry">
+            <span class="description">Item</span>
+            <span class="category">Expense</span>
+            <br>
+            <span class="amount">Pxx.xx</span>
+            <span class="date">January 01, 2001</span>
+
+        </div>
+
+        <div id="entry3" class="entry">
+            <span class="description">Item</span>
+            <span class="category">Expense</span>
+            <br>
+            <span class="amount">Pxx.xx</span>
+            <span class="date">January 01, 2001</span>
+
+        </div>
+
+        <div id="entry4" class="entry">
+            <span class="description">Item</span>
+            <span class="category">Expense</span>
+            <br>
+            <span class="amount">Pxx.xx</span>
+            <span class="date">January 01, 2001</span>
+
+        </div>
+
+        <div id="entry5" class="entry">
+            <span class="description">Item</span>
+            <span class="category">Expense</span>
+            <br>
+            <span class="amount">Pxx.xx</span>
+            <span class="date">January 01, 2001</span>
+
+        </div>
+
+    </body>
+</html>
