@@ -14,16 +14,26 @@ header {
     height: 50px;
 }
 
-/* MENU BAR */
+/* HEADER STYLES */
+
 header > a {
     cursor: pointer;
     margin-left: 20px;
+    margin-right: 20px;
     font-size: 28px;
+    color: black;
+    text-decoration: none;
 }
 
 header > a:hover {
     opacity: 50%;
     transition: 0.3s
+}
+
+/* MENU BAR */
+
+#newentry {
+    float: right;
 }
 
 #menubar {
@@ -33,7 +43,7 @@ header > a:hover {
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: white; /* Black*/
+    background-color: white; 
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -155,6 +165,11 @@ header > a:hover {
 
 .entry> .description, .entry > .category {
     font-size: 30px;
+}
+
+.entry:hover {
+    background-color: darkgrey;
+    cursor: pointer;
 }
 
 #searchentry, #entries {
