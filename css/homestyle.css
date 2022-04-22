@@ -36,6 +36,7 @@ header > a:hover {
     float: right;
 }
 
+/* menubar from w3schools */
 #menubar {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
@@ -45,8 +46,8 @@ header > a:hover {
     left: 0;
     background-color: white; 
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    padding-top: 60px; 
+    transition: 0.3s; 
 }
   
   /* The navigation menu links */
@@ -75,21 +76,34 @@ header > a:hover {
 }
 
 #month {
-    margin: 20px;
-    margin-left: 3%;
+    margin: 5px 0px 10px 5px;
+    /* margin-left: 3%; */
+}
+
+section {
+    padding: 2%;
+    box-sizing: border-box;
 }
 
 /* BALANCE */
 
+#topsection {
+    /* margin: 10px 0px;  */
+    box-sizing: border-box;
+    height: 170px;
+    width: 100%;
+}
+
 .quickinfo {
-    width: 30%; 
-    height: 140px;
+    width: 32.3%; 
+    height: 90%;
     background-color: lightgrey;
-    margin-left: 20px;
     border-radius: 30px;
+    box-sizing: border-box;
     float: left;
     padding-left: 20px;
     padding-top: 15px;
+    margin: 0.5%;
 }
 
 .edit {
@@ -142,14 +156,40 @@ header > a:hover {
     padding-left: 20px;
 }
 
+/* SEARCH BAR */
+
+#searchbar {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0.75%
+}
+
+#search {
+    padding-left: 30px;
+    height: 40px;
+    width: 98%;
+    border-radius: 30px;
+    border: 1px solid grey;
+}
+
 /* ENTRIES */
 
+#bottomsection {
+    margin: 10px 0px;
+}
+
+#entries {
+    height: auto;
+    width: auto;
+    margin: 10px;
+}
+
 .entry {
-    margin-left: 20px;
-    margin-bottom: 20px;
+    box-sizing: border-box;
+    margin: 0px 10px 20px 5px;
     background-color: lightgrey;
-    width: 95%;
-    height: 70px;
+    width: 100%;
+    height: 100px;
     padding: 15px;
     border-radius: 30px;
 }
@@ -170,22 +210,6 @@ header > a:hover {
 .entry:hover {
     background-color: darkgrey;
     cursor: pointer;
+    transition: 0.5s;
 }
 
-#searchentry, #entries {
-    padding-left: 30px;
-    margin-top: 20px;
-    padding-bottom: 20px;
-}
-
-#searchbar {
-    padding-top: 20px;
-}
-
-#search {
-    padding-left: 30px;
-    margin-left: 30px;
-    height: 40px;
-    width: 95%;
-    border-radius: 30px;
-}
