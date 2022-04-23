@@ -9,6 +9,14 @@
     font-family: IBM Plex Mono;
 }
 
+a {
+    color: #51A1EC;
+}
+
+a:visited {
+    color: #51A1EC;
+}
+
 .container {
     height: 150px;
     position: relative;
