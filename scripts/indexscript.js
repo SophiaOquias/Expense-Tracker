@@ -13,12 +13,12 @@ function editBalance() {
     var amount = document.getElementById("balamount");
 
     if(editButton.innerHTML == "edit"){
-        amount.innerHTML = "<input id='newbalance'>";
+        amount.innerHTML = "<input id='newbalance' type='number'>";
         editButton.innerHTML = "done";
     }
     else {
         var newBalance = document.getElementById("newbalance").value;
-        amount.innerHTML = newBalance;
+        amount.innerHTML = "P" + newBalance;
         editButton.innerHTML = "edit";
     }
 }
@@ -28,12 +28,12 @@ function editBudget() {
     var amount = document.getElementById("budgetamount");
 
     if(editButton.innerHTML == "edit"){
-        amount.innerHTML = "<input id='newbudget'>";
+        amount.innerHTML = "<input id='newbudget' type='number'>";
         editButton.innerHTML = "done";
     }
     else {
         var newBudget = document.getElementById("newbudget").value;
-        amount.innerHTML = newBudget;
+        amount.innerHTML = "P" + newBudget;
         editButton.innerHTML = "edit";
     }
 }
@@ -43,12 +43,12 @@ function editSavingsGoal() {
     var amount = document.getElementById("sgoalamount");
 
     if(editButton.innerHTML == "edit"){
-        amount.innerHTML = "<input id='newsavgoal'>";
+        amount.innerHTML = "<input id='newsavgoal' type='number'>";
         editButton.innerHTML = "done";
     }
     else {
         var newSavGoal = document.getElementById("newsavgoal").value;
-        amount.innerHTML = newSavGoal;
+        amount.innerHTML = "P" + newSavGoal;
         editButton.innerHTML = "edit";
     }
 }
