@@ -10,28 +10,28 @@ function checkForm(){
 
     if (username == ""){
         all_fields = false;
-        document.getElementById("username").style.backgroundColor = "red";
+        document.getElementById("username").style.backgroundColor = "#f57c7c";
     }
     else
         document.getElementById("username").style.backgroundColor = "white";
 
     if (email == ""){
         all_fields = false;
-        document.getElementById("email").style.backgroundColor = "red";
+        document.getElementById("email").style.backgroundColor = "#f57c7c";
     }
     else
         document.getElementById("email").style.backgroundColor = "white";
 
     if (password1 == ""){
         all_fields = false;
-        document.getElementById("password1").style.backgroundColor = "red";
+        document.getElementById("password1").style.backgroundColor = "#f57c7c";
     }
     else
         document.getElementById("password1").style.backgroundColor = "white";
 
     if (password2 == ""){
         all_fields = false;
-        document.getElementById("password2").style.backgroundColor = "red";
+        document.getElementById("password2").style.backgroundColor = "#f57c7c";
     }
     else
         document.getElementById("password2").style.backgroundColor = "white";
@@ -42,8 +42,8 @@ function checkForm(){
             valid = true;
         }
         else{
-            document.getElementById("password1").style.backgroundColor = "red";
-            document.getElementById("password2").style.backgroundColor = "red";
+            document.getElementById("password1").style.backgroundColor = "#f57c7c";
+            document.getElementById("password2").style.backgroundColor = "#f57c7c";
         }
     }
 
