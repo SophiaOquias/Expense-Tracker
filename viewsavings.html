@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>View Savings</title>
+        <link rel="stylesheet" href="css/viewstyle.css">
+    </head>
+
+    <body>
+
+        <script src="scripts/indexscript.js"></script>
+
+        <!-- copy this header to other pages -->
+        <header>
+            <a id="menubutton" onclick="openNav();">menu</a>
+            <a id="newentry" href="newentry.html">new entry</a> 
+        </header>
+
+        <div id="menubar">
+            <a onclick="closeNav()" class="closebtn">x</a>
+            <a href="index.html">home</a>
+            <a href="viewexpenses.html">view expenses</a>
+            <a href="viewsavings.html">view savings</a>
+            <a href="login.html">sign out</a>
+            <a href="viewaccount.html">view account</a>
+        </div>
+
+        <section>
+
+            <h1 id="date">January 1-12, 2022 </h1>
+
+            <span id="src">Search entry</span>
+
+            <div id="searchbar">
+                <input id="search">
+            </div>
+            
+            <span id="entry">Entries</span>
+            <div id="entrysect">
+                <div id="entry1" class="entry" onclick="location.href='editentry.html';">
+                    <span class="description">Initial Deposit</span>
+                    <span class="category">Income</span>
+                    <br>
+                    <span class="amount">P0.00</span>
+                    <span class="date">January 01, 2022</span>
+                </div>
+            </div>
+
+        </section>
+    </body>
+</html>
