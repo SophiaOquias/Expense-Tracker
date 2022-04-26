@@ -94,3 +94,10 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+#cancelbutton {
+    position: absolute;
+    top: 73.7%;
+    left: 48%;
+    background-color: #EC5151;
+}

@@ -46,6 +46,9 @@ function checkForm(){
             document.getElementById("password2").style.backgroundColor = "#f57c7c";
         }
     }
+    else {
+        alert("Error! Please fill out all fields!");
+    }
 
     return valid;			
 }	
