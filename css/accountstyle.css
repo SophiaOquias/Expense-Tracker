@@ -76,32 +76,23 @@ header > a:hover {
 }
 
 section {
-    padding: 2%;
+    margin: 3% 10%;
     box-sizing: border-box;
 }
 
 #header {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    text-align: center;
     font-size: 60px;
 }
 
 #details {
-    position: absolute;
-    top: 30%;
-    left: 47.5%;
-    transform: translate(-50%, -50%);
+    box-sizing: inherit;
+    margin: 30px 350px;
+    width: 50%;
 }
 
-#details > #email {
-    padding-top: 60%;
-}
-
-#details > #username {
-    padding-top: 20%;
-    padding-bottom: 20%;
+#details > h2 {
+    padding: 4% 0; 
 }
 
 button {
@@ -125,7 +116,23 @@ a {
 
 #buttons {
     position: absolute;
-    margin-top: 30%;
+    margin-top: 8%;
     margin-left: 50%;
 }
 
+/* EDIT STYLES */
+
+.info > input, .info > label {
+    font-size: 1.5em; 
+    font-weight: bold;
+}
+
+.info > input {
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+.info {
+    height: 33px;
+    padding: 4% 0%;
+}

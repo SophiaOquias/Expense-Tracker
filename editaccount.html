@@ -1,0 +1,59 @@
+<html>
+
+    <head>
+        <title>View Account Details</title>
+        <link rel="stylesheet" href="css/accountstyle.css">
+    </head>
+
+    <body>
+
+        <script src="scripts/indexscript.js"></script>
+
+        <!-- copy this header to other pages -->
+        <header>
+            <a id="menubutton" onclick="openNav();">menu</a>
+        </header>
+
+            <div id="menubar">
+                <a onclick="closeNav()" class="closebtn">x</a>
+                <a href="index.html">home</a>
+                <a href="viewexpenses.html">view expenses</a>
+                <a href="viewsavings.html">view savings</a>
+            </div>
+
+
+        <section>
+            <h1 id="header">Account Details</h1>
+
+            <div id="details">
+                <div class="info">
+                    <label>Email:&nbsp &nbsp</label>
+                    <input id="emailinput" type="email" value="email_email@email.com"><br>
+                </div>
+                <div class="info">
+                    <label>Username: </label>
+                    <input id="nameinput" type="text" value="myusernmaeiscool"><br>
+                </div>
+                <div class="info">
+                    <label>Password: </label>
+                    <input id="passinput" type="password" value="************">
+                </div>
+            </div>
+        
+
+            <div id="buttons">
+                <a href="viewaccount.html">
+                    <button id="edit">Cancel</button>
+                </a>
+
+                <a href="viewaccount.html">
+                    <button id="logout">Confirm</button>
+                </a>
+            </div>
+
+        </section>
+
+
+    </body>
+
+</html>
