@@ -3,14 +3,26 @@
     src: url(IBMPlexMono-Regular.ttf);
 }
 
+:root {
+    --primary-color: #1D3557;
+    --secondary: lightgrey;
+    --header-text: #F1FAEE;
+    --background-color: #F1FAEE;
+    --box-color: #A8DADC;
+    --box-color-dark: #7ec1c4;
+    --text-color: #1D3557;
+    --cancel: #E63946;
+}
+
 * {
     padding: 0px;
     margin: 0px;
     font-family: IBM Plex Mono;
+    color: var(--text-color)
 }
 
 header {
-    background-color: grey;
+    background-color: var(--primary-color);
     height: 50px;
 }
 
@@ -21,7 +33,7 @@ header>a {
     margin-left: 20px;
     margin-right: 20px;
     font-size: 28px;
-    color: black;
+    color: var(--header-text);
     text-decoration: none;
 }
 
@@ -49,7 +61,7 @@ header>a:hover {
     top: 0;
     /* Stay at the top */
     left: 0;
-    background-color: white;
+    background-color: var(--background-color);
     overflow-x: hidden;
     /* Disable horizontal scroll */
     padding-top: 60px;

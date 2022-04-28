@@ -1,3 +1,7 @@
+body {
+    background-color: var(--background-color);
+}
+
 #month {
     margin: 5px 0px 10px 5px;
     /* margin-left: 3%; */
@@ -20,7 +24,7 @@ section {
 .quickinfo {
     width: 32.3%; 
     height: 90%;
-    background-color: lightgrey;
+    background-color: var(--box-color);
     border-radius: 30px;
     box-sizing: border-box;
     float: left;
@@ -32,7 +36,7 @@ section {
 .quickinfo input {
     border: 0;
     border-bottom: 1px solid;
-    background-color: lightgrey;
+    background-color: transparent;
     font-size: 16pt;
     font-weight: bold;
 }
@@ -44,7 +48,7 @@ section {
 
 .edit {
     font-size: 8pt;
-    color: black;
+    color: var(--text-color);
     float: right;
     padding-right: 30px;
 }
@@ -105,7 +109,13 @@ section {
     height: 40px;
     width: 98%;
     border-radius: 30px;
-    border: 1px solid grey;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    outline: none;
+}
+
+::placeholder {
+    color: var(--text-color);
 }
 
 /* ENTRIES */
@@ -123,7 +133,7 @@ section {
 .entry {
     box-sizing: border-box;
     margin: 0px 10px 20px 5px;
-    background-color: lightgrey;
+    background-color: var(--box-color);
     width: 100%;
     height: 100px;
     padding: 15px;
@@ -144,7 +154,7 @@ section {
 }
 
 .entry:hover {
-    background-color: darkgrey;
+    background-color: var(--box-color-dark);
     cursor: pointer;
     transition: 0.5s;
 }
