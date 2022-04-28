@@ -23,8 +23,8 @@ button {
     width: 120px;
     height: 45px;
     font-size: 20pt;
-    color: white;
-    background-color: #51A1EC;
+    color: var(--text-opposite);
+    background-color: var(--primary-color);
     border-radius: 10px;
     border: 0px;
 }
@@ -54,6 +54,7 @@ a {
 .info > input {
     border: 0;
     border-bottom: 1px solid;
+    background-color: transparent;
 }
 
 .info {

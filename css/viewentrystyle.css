@@ -86,6 +86,7 @@ input:focus {
     border-radius: 10px;
     border: 0px;
     font-size: 12pt;
+    color: var(--text-opposite);
 }
 
 #buttons > button:hover {
@@ -93,9 +94,9 @@ input:focus {
 }
 
 #deletebtn {
-    background-color: grey;
+    background-color: var(--cancel);
 }
 
 #editbtn {
-    background-color: darkgrey;
+    background-color: var(--primary-color);
 }

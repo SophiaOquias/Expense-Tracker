@@ -38,10 +38,16 @@ input {
     border: 0;
     border-bottom: 1px solid;
     font-size: 14pt;
+    background-color: transparent;
 }
 
 input:focus {
     outline: none;
+}
+
+select, select > option {
+    color: var(--primary-color);
+    background-color: transparent;
 }
 
 #rightcolumn {
@@ -67,6 +73,7 @@ input:focus {
     border-radius: 10px;
     padding: 10px;
     resize: none;
+    background-color: transparent;
 }
 
 #notes:focus {
@@ -86,6 +93,7 @@ input:focus {
     border-radius: 10px;
     border: 0px;
     font-size: 12pt;
+    color: var(--text-opposite);
 }
 
 #buttons > button:hover {
@@ -93,9 +101,9 @@ input:focus {
 }
 
 #cancelbtn {
-    background-color: grey;
+    background-color: var(--cancel);
 }
 
 #confirmbtn {
-    background-color: darkgrey;
+    background-color: var(--primary-color);
 }

@@ -1,7 +1,3 @@
-body {
-    background-color: var(--background-color);
-}
-
 #month {
     margin: 5px 0px 10px 5px;
     /* margin-left: 3%; */
@@ -94,24 +90,6 @@ section {
     padding-top: 10px;
     padding-bottom: 5px;
     padding-left: 20px;
-}
-
-/* SEARCH BAR */
-
-#searchbar {
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0.75%
-}
-
-#search {
-    padding-left: 30px;
-    height: 40px;
-    width: 98%;
-    border-radius: 30px;
-    border: 1px solid var(--primary-color);
-    background-color: transparent;
-    outline: none;
 }
 
 ::placeholder {

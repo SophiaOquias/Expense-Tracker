@@ -1,9 +1,9 @@
 a {
-    color: #51A1EC;
+    color: var(--primary-color);
 }
 
 a:visited {
-    color: #51A1EC;
+    color: var(--primary-color);
 }
 
 .container {
@@ -45,9 +45,10 @@ a:visited {
 #loginform > form > input {
     height: 45px;
     border-radius: 10px;
-    border: 1px solid grey;
+    border: 1px solid var(--primary-color);
     margin: 10px 0px;
     padding: 10px;
+    background-color: transparent;
 }
 
 #loginform > form > input:focus {
@@ -73,8 +74,8 @@ button {
     width: 80px;
     height: 40px;
     font-size: 14pt;
-    color: white;
-    background-color: #51A1EC;
+    color: var(--text-opposite);
+    background-color: var(--primary-color);
     border-radius: 10px;
     border: 0px;
 }

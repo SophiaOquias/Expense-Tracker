@@ -4,13 +4,17 @@
 }
 
 :root {
+    /* primary-color is the color of components like the menubar and buttons */
     --primary-color: #1D3557;
-    --secondary: lightgrey;
+    --primary-dark: #0e2749;
+    --secondary: #457B9D;
     --header-text: #F1FAEE;
     --background-color: #F1FAEE;
+    /* box-color is the color of entries */
     --box-color: #A8DADC;
     --box-color-dark: #7ec1c4;
     --text-color: #1D3557;
+    --text-opposite: #F1FAEE;
     --cancel: #E63946;
 }
 
@@ -73,7 +77,7 @@ header>a:hover {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: var(--secondary);
     display: block;
     transition: 0.3s;
     cursor: pointer;
@@ -81,7 +85,7 @@ header>a:hover {
 
 /* When you mouse over the navigation links, change their color */
 #menubar>a:hover {
-    color: black;
+    color: var(--text-color);
 }
 
 /* Position and style the close button (top right corner) */
@@ -91,4 +95,26 @@ header>a:hover {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+/* SEARCH BAR */
+
+#searchbar {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0.75%
+}
+
+#search {
+    padding-left: 30px;
+    height: 40px;
+    width: 98%;
+    border-radius: 30px;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    outline: none;
+}
+
+body {
+    background-color: var(--background-color);
 }
