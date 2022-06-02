@@ -1,0 +1,93 @@
+a {
+    color: var(--primary-color);
+}
+
+a:visited {
+    color: var(--primary-color);
+}
+
+.container {
+    height: 150px;
+    position: relative;
+  }
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#signupbox {
+    box-sizing: border-box;
+    position: absolute;
+    margin: auto; 
+    transform: translate(-50%, -50%);
+    top: 45%;
+    left: 50%;
+    height: 500px;
+    width: 350px;
+    padding: 20px;
+}
+
+#signupbox > h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+#signupform, #signupform > form, #signupform > form > input {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#signupform > form > input {
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    margin: 10px 0px;
+    padding: 10px;
+    background-color: transparent;
+}
+
+#signupform > form > input:focus {
+    outline: none;
+}
+
+#signupform > form > label {
+    box-sizing: border-box;
+    font-size: 10pt;
+}
+
+#login {
+    font-size: 8pt;
+    text-align: center;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+button {
+    box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    margin-left: 210px;
+    font-size: 14pt;
+    color: var(--text-opposite);
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border: 0px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#cancelbutton {
+    position: absolute;
+    top: 73.6%;
+    left: 48%;
+    background-color: var(--cancel);
+}

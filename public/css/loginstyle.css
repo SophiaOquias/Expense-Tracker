@@ -1,0 +1,85 @@
+a {
+    color: var(--primary-color);
+}
+
+a:visited {
+    color: var(--primary-color);
+}
+
+.container {
+    height: 150px;
+    position: relative;
+  }
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#loginbox {
+    box-sizing: border-box;
+    position: absolute;
+    margin: auto; 
+    transform: translate(-50%, -50%);
+    top: 45%;
+    left: 50%;
+    height: 500px;
+    width: 350px;
+    padding: 20px;
+}
+
+#loginbox > h1 {
+    text-align: center;
+    padding: 50px;
+}
+
+#loginform, #loginform > form, #loginform > form > input {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#loginform > form > input {
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    margin: 10px 0px;
+    padding: 10px;
+    background-color: transparent;
+}
+
+#loginform > form > input:focus {
+    outline: none;
+}
+
+#loginform > form > label {
+    box-sizing: border-box;
+    font-size: 10pt;
+}
+
+#loginform > p {
+    font-size: 8pt;
+    text-align: center;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+button {
+    box-sizing: border-box;
+    width: 80px;
+    height: 40px;
+    font-size: 14pt;
+    color: var(--text-opposite);
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border: 0px;
+}
+
+button:hover {
+    cursor: pointer;
+}

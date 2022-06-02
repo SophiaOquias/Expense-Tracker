@@ -1,0 +1,63 @@
+section {
+    margin: 3% 10%;
+    box-sizing: border-box;
+}
+
+#header {
+    text-align: center;
+    font-size: 60px;
+}
+
+#details {
+    box-sizing: inherit;
+    margin: 30px 350px;
+    width: 50%;
+}
+
+#details > h2 {
+    padding: 4% 0; 
+}
+
+button {
+    box-sizing: border-box;
+    width: 120px;
+    height: 45px;
+    font-size: 20pt;
+    color: var(--text-opposite);
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border: 0px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+#buttons {
+    position: absolute;
+    margin-top: 8%;
+    margin-left: 50%;
+}
+
+/* EDIT STYLES */
+
+.info > input, .info > label {
+    font-size: 1.5em; 
+    font-weight: bold;
+    outline: none;
+}
+
+.info > input {
+    border: 0;
+    border-bottom: 1px solid;
+    background-color: transparent;
+}
+
+.info {
+    height: 33px;
+    padding: 4% 0%;
+}

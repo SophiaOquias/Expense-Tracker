@@ -1,0 +1,51 @@
+<html>
+    <head> 
+        <title>View Account Details</title>
+        <link rel="stylesheet" href="css/universalstyles.css">
+        <link rel="stylesheet" href="css/accountstyle.css">
+    </head>
+
+    <body>
+
+        <script src="scripts/indexscript.js"></script>
+
+        <!-- copy this header to other pages -->
+        <header>
+            <a id="menubutton" onclick="openNav();">menu</a>
+        </header>
+
+        <div id="menubar">
+            <a onclick="closeNav()" class="closebtn">x</a>
+            <a href="index.html">home</a>
+            <a href="viewexpenses.html">view expenses</a>
+            <a href="viewsavings.html">view savings</a>
+        </div>
+
+
+        <section>
+            <h1 id="header">Account Details</h1>
+
+            <div id="details">
+                <h2 id="email">Email: &nbsp&nbsp email_email@email.com</h2>
+                <h2 id="username">Username: myusernameiscool</h2>
+                <h2 id="password">Password: ************</h2>
+            </div>
+
+            <div id="buttons">
+                <button id="delete">Delete</button> <!-- feature TBA -->
+
+                <a href="editaccount.html"> 
+                    <button id="edit">Edit</button> 
+                </a>
+
+                <a href="login.html"> 
+                    <button id="logout">Log out</button> 
+                </a>
+            </div>
+
+        </section>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Edit Entry</title>
+        <link rel="stylesheet" href="css/universalstyles.css">
+        <link rel="stylesheet" href="css/editentrystyle.css">
+    </head>
+
+    <body>
+        <script src="scripts/editentryscript.js"></script>
+
+        <header>
+            <a id="menubutton" onclick="openNav();">menu</a>
+        </header>
+
+        <div id="menubar">
+            <a onclick="closeNav();" class="closebtn">x</a>
+            <a href="index.html">home</a>
+            <a href="viewexpenses.html">view expenses</a>
+            <a href="viewsavings.html">view savings</a>
+            <a href="login.html">sign out</a>
+            <a href="viewaccount.html">view account</a>
+        </div>
+
+        <section>
+            <!-- change this to drop down in a bit -->
+            <div id="type">
+                <select id="entrytype">
+                    <option value="expense">Expense</option>
+                    <option value="income">Income</option>
+                    <option value="savings">Savings</option>
+                </select>
+            </div>
+
+            <div id="infoinput">
+                <div id="leftcolumn">
+                    <input id="description" type="text" value="Thomas The Train Trainset"><br>
+                    <input id="date" type="date" value="2022-01-03"><br>
+                    <input id="ORnumber" type="text" value="O.R. 001042567"><br>
+                    <input id="category" type="text" value="Gift">
+                </div>
+                <div id="rightcolumn">
+                    <input id="amount" type="number" value="1760.00">
+                </div>
+            </div>
+            <div id="notesarea">
+                <textarea id="notes" placeholder="Notes...">Bought this as a gift for my nephew.</textarea>
+            </div>
+            <div id="buttons">
+                <button id="confirmbtn" onclick="location.href='index.html'">Confirm</button>
+                <button id="cancelbtn" onclick="location.href='viewentry.html'">Cancel</button>
+            </div>
+        </section>
+
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>View Entry</title>
+        <link rel="stylesheet" href="css/universalstyles.css">
+        <link rel="stylesheet" href="css/viewentrystyle.css">
+    </head>
+
+    <body>
+        <script src="scripts/viewentryscript.js"></script>
+
+        <header>
+            <a id="menubutton" onclick="openNav();">menu</a>
+        </header>
+
+        <div id="menubar">
+            <a onclick="closeNav();" class="closebtn">x</a>
+            <a href="index.html">home</a>
+            <a href="viewexpenses.html">view expenses</a>
+            <a href="viewsavings.html">view savings</a>
+            <a href="login.html">sign out</a>
+            <a href="viewaccount.html">view account</a>
+        </div>
+
+        <section>
+            <!-- change this to drop down in a bit -->
+            <div id="type">
+                <text>Expense</text>
+            </div>
+
+            <div id="infoinput">
+                <div id="leftcolumn">
+                    <h2 id="description">Thomas The Train Trainset</h2><br>
+                    <text id="date">January 03, 2022</text><br>
+                    <text id="ORnumber">O.R. 001042567</text><br>
+                    <text id="category">Gift</text>
+                </div>
+                <div id="rightcolumn">
+                    <text id="amount" type="number">P1,760.00</text>
+                </div>
+            </div>
+            <div id="notesarea">
+                <textarea id="notes" disabled>Bought this as a gift for my nephew.</textarea>
+            </div>
+            <div id="buttons">
+                <button id="editbtn" onclick="location.href='editentry.html'">Edit</button>
+                <button id="deletebtn" onclick="location.href='index.html'">Delete</button>
+            </div>
+        </section>
+
+    </body>
+</html>
