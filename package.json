@@ -1,0 +1,25 @@
+{
+  "name": "ccapdev_mp",
+  "version": "1.0.0",
+  "description": "- Go, Eldrich\r - Opalla, Rijan\r - Oquias, Sophia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SophiaOquias/CCAPDEV_MP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SophiaOquias/CCAPDEV_MP/issues"
+  },
+  "homepage": "https://github.com/SophiaOquias/CCAPDEV_MP#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongodb": "^4.6.0",
+    "mongoose": "^6.3.5"
+  }
+}
