@@ -9,3 +9,4 @@
 - Express
 - MongoDB
 - Mongoose
+- express-handlebars
