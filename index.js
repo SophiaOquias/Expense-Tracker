@@ -3,10 +3,15 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const app = new express();
 
+// init server port
+var server = app.listen(3000, function () {
+    console.log("Listening at port 3000...");
+});
+
 // MONGOOSE stuff 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/expenseTrackerDB',
-    { useNewURLParser: true, useUnifiedTopology: true });
+{ useNewURLParser: true, useUnifiedTopology: true });
 
 // Post initializations. 
 const Post = require("./database/models/Post");
@@ -21,11 +26,15 @@ app.use(express.static(__dirname + "/public"));
 app.set('view engine', 'hbs');
 app.engine("hbs", exphbs.engine({ extname: "hbs" }));
 
-// TO CHANGE THIS LATER 
+// INDEX STUFF
+// TO CHANGE THIS LATER WITH HANDLEBARS
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '\\' + 'public/html/index.html');
+    // res.sendFile(__dirname + '\\' + 'public/html/index.html');
+    res.render("index");
 });
 
-var server = app.listen(3000, function() {
-    console.log("Listening at port 3000...");
+app.get('/newentry', function(req, res) {
+    res.sendFile(__dirname + '\\' + 'public/html/newentry.html');
 });
+
+// to add: app.post for confirming new entry
