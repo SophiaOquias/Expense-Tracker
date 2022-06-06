@@ -33,8 +33,9 @@ app.get('/', function(req, res) {
     res.render("index");
 });
 
-app.get('/newentry', function(req, res) {
-    res.sendFile(__dirname + '\\' + 'public/html/newentry.html');
+app.get('/new-entry', function(req, res) {
+    // res.sendFile(__dirname + '\\' + 'public/html/newentry.html');
+    res.render("new-entry");
 });
 
 // to add: app.post for confirming new entry
