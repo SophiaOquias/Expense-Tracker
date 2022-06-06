@@ -1,0 +1,41 @@
+<section>
+
+    <h1 id="month">January</h1>
+
+    <div id="topsection">
+        <div id="balance" class="quickinfo">
+            <h1>Balance</h1>
+            <h1><span id="balamount">P8,000.00</span></h1>
+            <span class="typelabel">Total Expenses</span>
+            <span class="amount">P3,445.00</span>
+            <br>
+            <span class="typelabel">Total Income</span>
+            <span class="amount">P2,400.00</span>
+            <br>
+            <br>
+            <a id="editbalance" class="edit" onclick="editBalance();">edit</a>
+        </div>
+
+        <div id="budget" class="quickinfo">
+            <h2>Budget</h2>
+            <h1><span id="budgetamount">P5,000.00</span></h1>
+            <a id="editbudget" class="edit" onclick="editBudget();">edit</a>
+        </div>
+
+        <div id="savingsgoal" class="quickinfo">
+            <h2>Savings Goal</h2>
+            <h1><span id="sgoalamount">P10,000.00</span></h1>
+            <a id="editsavgoal" class="edit" onclick="editSavingsGoal();">edit</a>
+        </div>
+    </div>
+
+    <div id="searchbar">
+        <input id="search" placeholder="Search Entry">
+    </div>
+
+    <span id="entries">Entries</span>
+
+    <div id="bottomsection">
+        {{!-- This is where all entries will go --}}
+    </div>
+</section>
