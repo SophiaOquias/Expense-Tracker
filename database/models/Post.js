@@ -4,8 +4,10 @@ const PostSchema = new mongoose.Schema({
     entryType: String,
     date: String,
     category: String,
-    item: String,
-    amount: Number
+    description: String,
+    amount: Number,
+    notes: String,
+    ORnumber: String
 });
 
 // idk what the stuff below do 
