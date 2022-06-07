@@ -122,12 +122,12 @@ section {
     padding-left: 20px;
 }
 
-.entry > .category, .entry > .amount {
+.entry > .entryType, .entry > .amount {
     float: right; 
     padding-right: 20px;
 }
 
-.entry> .description, .entry > .category {
+.entry> .description, .entry > .entryType {
     font-size: 30px;
 }
 
