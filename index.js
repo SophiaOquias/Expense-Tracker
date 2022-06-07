@@ -4,8 +4,9 @@ const exphbs = require('express-handlebars');
 const app = new express();
 
 // init server port
-var server = app.listen(3000, function () {
-    console.log("Listening at port 3000...");
+const port = 3000; 
+var server = app.listen(port, function () {
+    console.log("Listening at port " + port);
 });
 
 // MONGOOSE stuff 
@@ -26,16 +27,43 @@ app.use(express.static(__dirname + "/public"));
 app.set('view engine', 'hbs');
 app.engine("hbs", exphbs.engine({ extname: "hbs" }));
 
+
+// ROUTES
+
 // INDEX STUFF
-// TO CHANGE THIS LATER WITH HANDLEBARS
+// To do: edit goals and viewing entries 
 app.get('/', function(req, res) {
     // res.sendFile(__dirname + '\\' + 'public/html/index.html');
     res.render("index");
 });
 
+// for some reason this needs to be async, not sure why tho but it works ¯\_(ツ)_/¯
+app.get('/get-expenses', async(req, res) => {
+    var expenses = await Post.find({}).lean(); // .lean() makes query in JSON format
+    res.status(200).send(expenses);
+});
+
+// NEW ENTRY STUFF
 app.get('/new-entry', function(req, res) {
-    // res.sendFile(__dirname + '\\' + 'public/html/newentry.html');
     res.render("new-entry");
+});
+
+app.post('/add-expense', function(req, res) {
+    var expense = {
+        // entryType is the name attr, and entrytype is id attr in hbs file
+        // for some reason if element is a selection, it needs name attribute instead of id
+        entryType: req.body.entryType,
+        date: req.body.date,
+        category: req.body.category,
+        description: req.body.description,
+        amount: req.body.amount,
+        notes: req.body.notes,
+        ORnumber: req.body.ORnumber
+    }
+
+    Post.create(expense);
+
+    res.status(200).send(expense);
 });
 
 // to add: app.post for confirming new entry
