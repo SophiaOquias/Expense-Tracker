@@ -2,31 +2,33 @@
 <script src="scripts/newentry.js"></script>
 
 <section>
-    <div id="type">
-        <select id="entrytype">
-            <option value="NA">Type</option>
-            <option value="expense">Expense</option>
-            <option value="income">Income</option>
-            <option value="savings">Savings</option>
-        </select>
-    </div>
-
-    <div id="infoinput">
-        <div id="leftcolumn">
-            <input id="description" type="text" placeholder="Enter name of item"><br>
-            <input id="date" type="date" placeholder="Date"><br>
-            <input id="ORnumber" type="text" placeholder="O.R. Number"><br>
-            <input id="category" type="text" placeholder="Category">
+    <form>
+        <div id="type">
+            <select id="entrytype" name="entryType">
+                <option value="NA" selected>Type</option>
+                <option value="expense">Expense</option>
+                <option value="income">Income</option>
+                <option value="savings">Savings</option>
+            </select>
         </div>
-        <div id="rightcolumn">
-            <input id="amount" type="number" placeholder="Amount">
+        
+        <div id="infoinput">
+            <div id="leftcolumn">
+                <input id="description" type="text" placeholder="Enter name of item"><br>
+                <input id="date" type="date" placeholder="Date"><br>
+                <input id="ORnumber" type="text" placeholder="O.R. Number"><br>
+                <input id="category" type="text" placeholder="Category">
+            </div>
+            <div id="rightcolumn">
+                <input id="amount" type="number" placeholder="Amount">
+            </div>
         </div>
-    </div>
-    <div id="notesarea">
-        <textarea id="notes" placeholder="Notes..."></textarea>
-    </div>
-    <div id="buttons">
-        <button id="confirmbtn" onclick="location.href='/'">Confirm</button>
-        <button id="cancelbtn" onclick="location.href='/'">Cancel</button>
-    </div>
+        <div id="notesarea">
+            <textarea id="notes" placeholder="Notes..."></textarea>
+        </div>
+        <div id="buttons">
+            <button id="confirmbtn" type="button">Confirm</button>
+            <button id="cancelbtn" onclick="location.href='/'">Cancel</button>
+        </div>
+    </form>
 </section>
