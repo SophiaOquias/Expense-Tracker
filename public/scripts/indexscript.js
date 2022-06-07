@@ -34,7 +34,7 @@ $(document).ready(function() {
         // add data 
         $(descriptionRow).text(expense.description);
         $(entryTypeRow).text(expense.entryType);
-        $(amountRow).text(expense.amount);
+        $(amountRow).text("P" + numberWithCommas(expense.amount.toFixed(2)));
         $(dateRow).text(expense.date);
 
         // append to parent div 

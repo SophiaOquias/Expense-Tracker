@@ -90,4 +90,8 @@ $(document).ready(function() {
             window.open("/", "_self");
         }
     });
+
+    $("#cancelbtn").click(function() {
+        window.open("/", "_self");
+    });
 });
