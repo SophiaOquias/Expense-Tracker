@@ -84,6 +84,11 @@ app.get('/view-savings', function(req, res) {
     res.render("view-savings");
 });
 
+app.get('/view-savings/get-savings-only', async (req, res) => {
+    var expenses = await Post.find({ entryType: "savings" }).lean();
+    res.status(200).send(expenses);
+});
+
 // LOGIN STUFF
 app.get('/login', function(req, res) {
     res.render("login", {layout: "login-layout"});
