@@ -74,6 +74,11 @@ app.get('/view-expenses', function(req, res) {
     res.render("view-expenses");
 });
 
+app.get('/view-expenses/get-expenses-only', async(req, res) => {
+    var expenses = await Post.find({entryType:"expense"}).lean();
+    res.status(200).send(expenses);
+});
+
 // VIEW SAVINGS STUFF
 app.get('/view-savings', function(req, res) {
     res.render("view-savings");
