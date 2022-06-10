@@ -30,6 +30,11 @@ $(document).ready(function () {
         $(amountRow).addClass("amount");
         $(dateRow).addClass("date");
 
+        // other attributes
+        // this links each entry blob to entry page 
+        var link = "location.href='/view/entry?id=" + expense._id + "'";
+        $(expenseEntry).attr("onclick", link)
+
         // add data 
         $(descriptionRow).text(expense.description);
         $(entryTypeRow).text(expense.entryType);

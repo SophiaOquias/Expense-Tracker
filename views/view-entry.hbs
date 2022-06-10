@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/css/viewentrystyle.css">
+<script src="/scripts/view-entry.js"></script>
+
+<section>
+    <div id="type">
+        <text>{{entryType}}</text>
+    </div>
+
+    <div id="infoinput">
+        <div id="leftcolumn">
+            <h2 id="description"> {{description}} </h2><br>
+            <text id="date"> {{date}} </text><br>
+            {{!-- TO DO: add if helper, so that if no OR is available, O.R. will not be displayed --}}
+            <text id="ORnumber">O.R. {{ORnumber}} </text><br>
+            <text id="category"> {{category}} </text>
+        </div>
+        <div id="rightcolumn">
+            <text id="amount" type="number"> {{amount}} </text>
+        </div>
+    </div>
+    <div id="notesarea">
+        <textarea id="notes" disabled> {{notes}} </textarea>
+    </div>
+    <div id="buttons">
+        <button id="editbtn" onclick="location.href='editentry.html'">Edit</button>
+        <button id="deletebtn" onclick="location.href='index.html'">Delete</button>
+    </div>
+</section>

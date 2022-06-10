@@ -17,6 +17,7 @@ mongoose.connect('mongodb://localhost/expenseTrackerDB',
 // Post initializations. 
 const Post = require("./database/models/Post");
 const path = require('path');
+const { ObjectId } = require('mongodb');
 
 // Initialize data and static folder 
 app.use(express.json());
@@ -64,9 +65,6 @@ app.post('/add-expense', function(req, res) {
 
     // create document in db 
     Post.create(expense);
-
-    // refer to public/scripts/newentry.js for all the AJAX stuff
-    res.status(200).send(expense);
 });
 
 // VIEW EXPENSES STUFF
@@ -98,3 +96,11 @@ app.get('/login', function(req, res) {
 app.get('/account', function(req, res) {
     res.render("view-account");
 });
+
+// VIEW ENTRY STUFF 
+app.get('/view/entry', async(req, res) => {
+    var entryID = req.query.id;
+    const entry = await Post.findById(entryID).lean(); 
+    console.log(entry);
+    res.render("view-entry", entry);
+})
