@@ -97,10 +97,18 @@ app.get('/account', function(req, res) {
     res.render("view-account");
 });
 
-// VIEW ENTRY STUFF 
+// VIEW ENTRY STUFF
+/**
+     * Each entry is embedded with its corresponding objectID in the database. 
+     * Everytime an entry is clicked, it will lead to this url: /view/entry?id=<entryID here>.
+     * req.query.id gets the id from the url and stores it to entryID and this ID is used to create
+     * a query in the database for the document with that ObjectID.
+     */
 app.get('/view/entry', async(req, res) => {
     var entryID = req.query.id;
     const entry = await Post.findById(entryID).lean(); 
     console.log(entry);
     res.render("view-entry", entry);
-})
+});
+
+// TO DO: edit entry and delete entry 
