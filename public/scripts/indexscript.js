@@ -57,16 +57,21 @@ $(document).ready(function() {
 
         var expenseContainer = $("#bottomsection");
 
-        var sum = 0;
+        var totalExpense = 0;
+        var totalIncome = 0; 
 
         data.forEach((item, i) => {
             createExpenseDiv(item, expenseContainer);
 
-            sum += item.amount;
+            if(item.entryType == "expense")
+                totalExpense += item.amount;
+            else if(item.entryType == "income")
+                totalIncome += item.amount; 
         });
 
         // to .toFixed(2) adds decimal 
-        $("#totalExpenses").text("P" + numberWithCommas(sum.toFixed(2)));
+        $("#totalExpenses").text("P" + numberWithCommas(totalExpense.toFixed(2)));
+        $("#totalIncome").text("P" + numberWithCommas(totalIncome.toFixed(2)));
     });
 })
 
