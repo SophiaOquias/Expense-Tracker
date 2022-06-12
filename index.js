@@ -92,6 +92,11 @@ app.get('/login', function(req, res) {
     res.render("login", {layout: "login-layout"});
 });
 
+// SIGNUP STUFF
+app.get('/signup', function(req, res) {
+    res.render("signup", {layout: "login-layout"})
+})
+
 // VIEW ACCOUNT STUFF
 app.get('/account', function(req, res) {
     res.render("view-account");
@@ -107,7 +112,6 @@ app.get('/account', function(req, res) {
 app.get('/view/entry', async(req, res) => {
     var entryID = req.query.id;
     const entry = await Post.findById(entryID).lean(); 
-    console.log(entry);
     res.render("view-entry", entry);
 });
 
