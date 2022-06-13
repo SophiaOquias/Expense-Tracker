@@ -46,7 +46,7 @@ app.get('/get-expenses', async(req, res) => {
 
 // NEW ENTRY STUFF
 app.get('/new-entry', function(req, res) {
-    res.render("new-entry");
+    res.render("new-entry", {layout: "no-new-entry"});
 });
 
 app.post('/add-expense', function(req, res) {
@@ -99,7 +99,7 @@ app.get('/signup', function(req, res) {
 
 // VIEW ACCOUNT STUFF
 app.get('/account', function(req, res) {
-    res.render("view-account");
+    res.render("view-account", {layout: "no-new-entry"});
 });
 
 // VIEW ENTRY STUFF
