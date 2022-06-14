@@ -10,6 +10,8 @@
 - MongoDB
 - Mongoose
 - express-handlebars
+- express-session
+- connect-mongo
 
 ## Installation Instructions 
 - TODO
