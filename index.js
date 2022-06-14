@@ -134,4 +134,13 @@ app.get('/view/entry', async(req, res) => {
     res.render("view-entry", entry);
 });
 
+// delete entry 
+app.get('/delete/entry', async (req, res) => {
+    var entryID = req.query.id; 
+    console.log(entryID);
+    await Post.deleteOne({_id: entryID});
+    res.redirect("/");
+});
+
+
 // TO DO: edit entry and delete entry 

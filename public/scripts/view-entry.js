@@ -11,9 +11,10 @@ $(document).ready(function() {
 
     $("#amount").text(numberWithCommas("P " + unformattedAmount.toFixed(2)));
 
-    // TO DO: delete
     $("#deletebtn").click(function() {
-        // code here
+        
+
+        // window.open("/", "_self");
     });
 
 });
