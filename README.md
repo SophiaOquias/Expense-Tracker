@@ -12,6 +12,7 @@
 - express-handlebars
 - express-session
 - connect-mongo
+- express-validator
 
 ## Installation Instructions 
 - TODO
