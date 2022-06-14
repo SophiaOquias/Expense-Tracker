@@ -1,6 +1,9 @@
 // init packages 
 const express = require('express');
 const exphbs = require('express-handlebars');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
 const app = new express();
 
 // init server port
@@ -96,6 +99,22 @@ app.get('/login', function(req, res) {
 app.get('/signup', function(req, res) {
     res.render("signup", {layout: "login-layout"})
 })
+
+//SESSION STUFF
+/*
+    * secret - signs session ID; should be a random string
+    * store  - where sessions get stored
+    * resave - when false: only saves the session when a value is modified
+    * saveUninitialized: forces a new but unmodified session to be saved to the store
+    * cookie: settings for current session cookie
+*/
+app.use(session({
+    secret: 'l1v3Jesus',
+    store: MongoStore.create({mongoUrl: 'mongodb://localhost/expenseTrackerDB'}),
+    resave: false,
+    saveUninitialized: true,
+    cookie: {secure: false, maxAge: 1000 * 60 * 60 * 24 * 7}
+}))
 
 // VIEW ACCOUNT STUFF
 app.get('/account', function(req, res) {
