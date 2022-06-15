@@ -1,12 +1,11 @@
 <link rel="stylesheet" href="/css/signupstyle.css">
 
-<script src="scripts/signupscript.js"></script>
-
 <div id="signupbox">
     <h1>Register a new Account</h1>
 
     <div id="signupform">
-        <form action="login.html" onsubmit="return checkForm()">
+        <form action="/signup" method="POST">
+            {{> messages}}
             <label>Email</label>
             <input id="email" type="text"><br>
             <label>Username</label>

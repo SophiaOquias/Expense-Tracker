@@ -3,6 +3,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
 
 const app = new express();
 
@@ -92,16 +93,6 @@ app.get('/view-savings/get-savings-only', async (req, res) => {
     res.status(200).send(expenses);
 });
 
-// LOGIN STUFF
-app.get('/login', function(req, res) {
-    res.render("login", {layout: "login-layout"});
-});
-
-// SIGNUP STUFF
-app.get('/signup', function(req, res) {
-    res.render("signup", {layout: "login-layout"})
-})
-
 //SESSION STUFF
 /*
     * secret - signs session ID; should be a random string
@@ -117,6 +108,31 @@ app.use(session({
     saveUninitialized: true,
     cookie: {secure: false, maxAge: 1000 * 60 * 60 * 24 * 7}
 }))
+
+//FLASH
+app.use(flash());
+
+app.use((req, res, next) => {
+    app.locals.success = req.flash('success')
+    next();
+});
+
+// SIGNUP STUFF
+const userController = require("./userController");
+const {registerValidation} = require(__dirname +'/public/scripts/validator.js');
+
+app.get('/signup', function(req, res) {
+    res.render("signup", {layout: "login-layout"})
+});
+
+app.post('/signup', registerValidation, userController.registerUser);
+
+// LOGIN STUFF
+app.get('/login', function(req, res) {
+    res.render("login", {layout: "login-layout"});
+});
+
+// app.post('/login', userController.loginUser);
 
 // VIEW ACCOUNT STUFF
 app.get('/account', function(req, res) {

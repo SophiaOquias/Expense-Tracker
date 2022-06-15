@@ -13,6 +13,7 @@
 - express-session
 - connect-mongo
 - express-validator
+- connect-flash
 
 ## Installation Instructions 
 - TODO
