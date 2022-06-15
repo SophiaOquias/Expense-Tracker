@@ -69,9 +69,12 @@ $(document).ready(function() {
                 totalIncome += item.amount; 
         });
 
+        var totalBalance = totalIncome - totalExpense; 
+
         // to .toFixed(2) adds decimal 
         $("#totalExpenses").text("P" + numberWithCommas(totalExpense.toFixed(2)));
         $("#totalIncome").text("P" + numberWithCommas(totalIncome.toFixed(2)));
+        $("#balamount").text("P" + numberWithCommas(totalBalance.toFixed(2)));
     });
 })
 
