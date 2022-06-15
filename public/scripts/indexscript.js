@@ -86,20 +86,6 @@ $(document).ready(function() {
 })
 
 // TO DO: make this jquery later
-function editBalance() {
-    var editButton = document.getElementById("editbalance");
-    var amount = document.getElementById("balamount");
-
-    if(editButton.innerHTML == "edit"){
-        amount.innerHTML = "<input id='newbalance' type='number'>";
-        editButton.innerHTML = "done";
-    }
-    else {
-        var newBalance = document.getElementById("newbalance").value;
-        amount.innerHTML = "P" + newBalance;
-        editButton.innerHTML = "edit";
-    }
-}
 
 function editBudget() {
     var editButton = document.getElementById("editbudget");
