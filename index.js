@@ -132,7 +132,7 @@ app.get('/login', function(req, res) {
     res.render("login", {layout: "login-layout"});
 });
 
-// app.post('/login', userController.loginUser);
+app.post('/login', userController.loginUser);
 
 // VIEW ACCOUNT STUFF
 app.get('/account', function(req, res) {
