@@ -1,0 +1,21 @@
+<script src="/scripts/search.js"></script>
+<link rel="stylesheet" href="/css/viewstyle.css">
+
+<section>
+
+    <h1 id="date">January 2022 </h1>
+
+    <span id="entry">Entries</span>
+    <div id="entrysect">
+        {{#each expenses}}
+        <div class="entry" onclick="location.href='/view/entry?id={{_id}}';">
+            <span class="description">{{this.description}}</span>
+            <span class="entryType">{{this.entryType}}</span>
+            <br>
+            <span class="amount">{{this.amount}}</span>
+            <span class="date">{{this.date}}</span>
+        </div>
+        {{/each}}
+    </div>
+
+</section>

@@ -161,5 +161,17 @@ app.post('/edit/confirm', async(req, res) => {
     await Post.updateOne({_id: ObjectId(entryID)}, {$set: newEdits})
 });
 
+app.get('/search', async (req, res) => {
+    let expenses = await Post.find({
+        "$or": [
+            { entryType: { $regex: req.query.key } },
+            { ORnumber: { $regex: req.query.key } },
+            { date: { $regex: req.query.key } },
+            { description: { $regex: req.query.key } },
+            { category: { $regex: req.query.key } }
+        ]
+    }).lean();
 
+    res.render("search", {expenses})
+});
 // TO DO: edit entry

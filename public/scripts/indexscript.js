@@ -76,6 +76,13 @@ $(document).ready(function() {
         $("#totalIncome").text("P" + numberWithCommas(totalIncome.toFixed(2)));
         $("#balamount").text("P" + numberWithCommas(totalBalance.toFixed(2)));
     });
+
+    $("#search").keydown(function (event) {
+        if (event.keyCode === 13) {
+            var input = $("#search").val();
+            window.open("/search?key=" + input, "_self"); 
+        }
+    });
 })
 
 // TO DO: make this jquery later
