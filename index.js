@@ -31,7 +31,6 @@ app.use(express.static(__dirname + "/public")); // place all html, js, css for t
 app.set('view engine', 'hbs');
 app.engine("hbs", exphbs.engine({ extname: "hbs" }));
 
-
 // ROUTES
 
 // INDEX STUFF (home page)
@@ -139,6 +138,27 @@ app.get('/delete/entry', async (req, res) => {
     var entryID = req.query.id; 
     await Post.deleteOne({_id: entryID});
     res.redirect("/");
+});
+
+app.get('/edit/entry', async(req, res) => {
+    var entryID = req.query.id; 
+    const entry = await Post.findById(entryID).lean();
+    res.render("edit-entry", entry);
+});
+
+app.post('/edit/confirm', async(req, res) => {
+    var entryID = req.body.id;
+    var newEdits = {
+        entryType: req.body.entryType,
+        date: req.body.date,
+        category: req.body.category,
+        description: req.body.description,
+        amount: req.body.amount,
+        notes: req.body.notes,
+        ORnumber: req.body.ORnumber
+    }
+
+    await Post.updateOne({_id: ObjectId(entryID)}, {$set: newEdits})
 });
 
 

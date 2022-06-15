@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/editentrystyle.css">
+<script src="/scripts/edit-entry.js"></script>
+
+<section>
+    <div id="type">
+        <select id="entrytype" name="entryType">
+            <option value="{{entryType}}">{{entryType}}</option>
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+            <option value="savings">Savings</option>
+        </select>
+    </div>
+
+    <div id="infoinput">
+        <div id="leftcolumn">
+            <input id="description" type="text" value="{{description}}" placeholder="Description"><br>
+            <input id="date" type="date" value="{{date}}" placeholder="Date"><br>
+            <input id="ORnumber" type="text" value="{{ORnumber}}" placeholder="O.R."><br>
+            <input id="category" type="text" value="{{category}}" placeholder="Category">
+        </div>
+        <div id="rightcolumn">
+            <input id="amount" type="number" value="{{amount}}" placeholder="Amount">
+        </div>
+    </div>
+    <div id="notesarea">
+        <textarea id="notes" placeholder="Notes...">{{notes}}</textarea>
+    </div>
+    <div id="buttons">
+        <button id="confirmbtn" value="{{_id}}" type="button">Confirm</button>
+        <button id="cancelbtn" onclick="history.back()">Cancel</button>
+    </div>
+</section>
