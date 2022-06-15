@@ -29,7 +29,10 @@ app.use(express.static(__dirname + "/public")); // place all html, js, css for t
 
 // using handlebars 
 app.set('view engine', 'hbs');
-app.engine("hbs", exphbs.engine({ extname: "hbs" }));
+app.engine("hbs", exphbs.engine({ 
+    extname: "hbs", 
+    helpers: require(__dirname + '/public/hbs-helpers/helpers.js')
+}));
 
 // ROUTES
 

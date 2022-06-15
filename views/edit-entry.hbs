@@ -4,10 +4,11 @@
 <section>
     <div id="type">
         <select id="entrytype" name="entryType">
-            <option value="{{entryType}}">{{entryType}}</option>
+            {{#select entryType}}
             <option value="expense">Expense</option>
             <option value="income">Income</option>
             <option value="savings">Savings</option>
+            {{/select}}
         </select>
     </div>
 
