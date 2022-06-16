@@ -134,8 +134,6 @@ app.get('/login', function(req, res) {
 
 app.post('/login', loginValidation, userController.loginUser);
 
-// app.post('/login', userController.loginUser);
-
 // VIEW ACCOUNT STUFF
 app.get('/account', function(req, res) {
     res.render("view-account", {layout: "no-new-entry"});
