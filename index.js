@@ -119,7 +119,7 @@ app.use((req, res, next) => {
 
 // SIGNUP STUFF
 const userController = require("./userController");
-const {registerValidation} = require(__dirname +'/public/scripts/validator.js');
+const {registerValidation, loginValidation} = require(__dirname +'/public/scripts/validator.js');
 
 app.get('/signup', function(req, res) {
     res.render("signup", {layout: "login-layout"})
@@ -131,6 +131,8 @@ app.post('/signup', registerValidation, userController.registerUser);
 app.get('/login', function(req, res) {
     res.render("login", {layout: "login-layout"});
 });
+
+app.post('/login', loginValidation, userController.loginUser);
 
 // app.post('/login', userController.loginUser);
 
