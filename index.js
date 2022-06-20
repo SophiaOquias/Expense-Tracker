@@ -44,7 +44,7 @@ app.get('/', async(req, res) => {
     res.render("index", {entry: expenses});
 });
 
-// for some reason this needs to be async, not entirely sure why tho but it works ¯\_(ツ)_/¯
+// this gets the balance, total expense, and total income 
 app.get('/get-total', async(req, res) => {
     var expenses = await Post.find({}).lean(); // .lean() makes query in JSON format
     res.status(200).send(expenses);
