@@ -38,13 +38,14 @@ app.engine("hbs", exphbs.engine({
 
 // INDEX STUFF (home page)
 // TO DO: edit goals and viewing entries 
-app.get('/', function(req, res) {
-    // res.sendFile(__dirname + '\\' + 'public/html/index.html');
-    res.render("index");
+app.get('/', async(req, res) => {
+    var expenses = await Post.find({}).lean(); // .lean() makes query in JSON format 
+    
+    res.render("index", {entry: expenses});
 });
 
 // for some reason this needs to be async, not entirely sure why tho but it works ¯\_(ツ)_/¯
-app.get('/get-expenses', async(req, res) => {
+app.get('/get-total', async(req, res) => {
     var expenses = await Post.find({}).lean(); // .lean() makes query in JSON format
     res.status(200).send(expenses);
 });
@@ -73,23 +74,15 @@ app.post('/add-expense', function(req, res) {
 });
 
 // VIEW EXPENSES STUFF
-app.get('/view-expenses', function(req, res) {
-    res.render("view-expenses");
-});
-
-app.get('/view-expenses/get-expenses-only', async(req, res) => {
-    var expenses = await Post.find({entryType:"expense"}).lean();
-    res.status(200).send(expenses);
+app.get('/view-expenses', async(req, res) => {
+    var expense = await Post.find({ entryType: "expense" }).lean();
+    res.render("view-expenses", {expense});
 });
 
 // VIEW SAVINGS STUFF
-app.get('/view-savings', function(req, res) {
-    res.render("view-savings");
-});
-
-app.get('/view-savings/get-savings-only', async (req, res) => {
-    var expenses = await Post.find({ entryType: "savings" }).lean();
-    res.status(200).send(expenses);
+app.get('/view-savings', async (req, res) => {
+    var expense = await Post.find({ entryType: "savings" }).lean();
+    res.render("view-savings", {expense});
 });
 
 // LOGIN STUFF
