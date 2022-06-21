@@ -11,6 +11,15 @@ const PostSchema = new mongoose.Schema({
 });
 
 // idk what the stuff below do 
-const Post = mongoose.model('Post', PostSchema);
+const postModel = mongoose.model('Post', PostSchema);
 
-module.exports = Post; 
+exports.getAllEntries = function(next) {
+    postModel.find({}).lean().exec(function(err, result) {
+        if(err) throw err; 
+        next(result);
+    })
+}
+
+exports.createEntry = function(doc) {
+    postModel.create(doc);
+}

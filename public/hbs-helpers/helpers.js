@@ -7,7 +7,7 @@ function numberWithCommas(number) {
 module.exports = {
     
     currency: function(value) {
-        return "P" + numberWithCommas(value.toFixed(2));
+        return "P" + numberWithCommas(Number(value).toFixed(2));
     },
 
     select: function(selected, options) {
