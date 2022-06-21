@@ -103,7 +103,7 @@ app.get('/view-savings/get-savings-only', async (req, res) => {
 */
 app.use(session({
     secret: 'l1v3Jesus',
-    store: MongoStore.create({mongoUrl: 'mongodb://localhost/expenseTrackerDB'}),
+    store: MongoStore.create({mongoUrl:'mongodb://localhost/expenseTrackerDB'}),
     resave: false,
     saveUninitialized: true,
     cookie: {secure: false, maxAge: 1000 * 60 * 60 * 24 * 7}
@@ -113,7 +113,8 @@ app.use(session({
 app.use(flash());
 
 app.use((req, res, next) => {
-    app.locals.success = req.flash('success')
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
     next();
 });
 

@@ -4,8 +4,7 @@
     <h1>Register a new Account</h1>
 
     <div id="signupform">
-        <form action="/signup" method="POST">
-            {{> messages}}
+        <form action="/signup" method="post">
             <label>Email</label>
             <input id="email" type="text"><br>
             <label>Username</label>
@@ -17,7 +16,12 @@
 
             <p id="login">Already have an account? Click here to <a href="/login">Log in</a>!</p>
             <br>
-            <button id="signupbutton" type=submit value="Sign Up">Sign Up</button>
+            <button id="signupbutton" type=submit>Sign Up</button>
         </form>
+    </div>
+
+    <div id = 'error'>
+        <br>
+        {{> messages}}
     </div>
 </div>
