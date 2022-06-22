@@ -3,6 +3,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
 
 const router = require("./routes/routes")
 
@@ -43,8 +44,17 @@ app.use('/', router);
 */
 app.use(session({
     secret: 'l1v3Jesus',
-    store: MongoStore.create({mongoUrl: 'mongodb://localhost/expenseTrackerDB'}),
+    store: MongoStore.create({mongoUrl:'mongodb://localhost/expenseTrackerDB'}),
     resave: false,
     saveUninitialized: true,
     cookie: {secure: false, maxAge: 1000 * 60 * 60 * 24 * 7}
-}));
+}))
+
+//FLASH
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    next();
+});
