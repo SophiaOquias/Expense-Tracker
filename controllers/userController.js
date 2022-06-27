@@ -63,8 +63,22 @@ exports.loginUser = (req, res) => {
         if (User) {
           // User found!
     
-          // next block of code goes here
-          res.redirect('/');
+          bcrypt.compare(password, user.password, (err, result) => {
+            //passwords match (result == true)
+            if (result) {
+              //update session object once matched
+              req.session.user = user._id;
+              req.session.name = user.name;
+
+              console.log(req.session);
+
+              res.redirect('/');
+            }
+            else { //passwords don't match
+              req.flash('error_msg', 'Incorrect password. Please try again');
+              res.redirect('/login');
+            }
+          });
         } else {
           // No user found
           req.flash('error_msg', 'No registered user with that username. Please register.');
