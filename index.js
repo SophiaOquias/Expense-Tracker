@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
+const bodyParser = require('body-parser');
 
 const router = require("./routes/routes")
 
@@ -32,8 +33,6 @@ app.engine("hbs", exphbs.engine({
     helpers: require(__dirname + '/public/hbs-helpers/helpers.js')
 }));
 
-app.use('/', router); 
-
 //SESSION STUFF
 /*
     * secret - signs session ID; should be a random string
@@ -58,3 +57,11 @@ app.use((req, res, next) => {
     res.locals.error_msg = req.flash('error_msg');
     next();
 });
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use('/', router); 
+
