@@ -13,7 +13,7 @@ const registerValidation = [
 
     body('password2').not().isEmpty().withMessage("Please provide a password")
     .custom((value, {req})=> {
-        if (value !== req.body.password) {
+        if (value !== req.body.password1) {
             throw new Error("Passwords must match");
         }
         return true;
