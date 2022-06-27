@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {registerValidation} = require('../public/scripts/validator.js');
+const {registerValidation, loginValidation} = require('../public/scripts/validator.js');
 
 // importing controller
 const controller = require("../controllers/controller");
@@ -15,7 +15,7 @@ router.get('/view-savings', controller.getSavings);
 router.get('/login', controller.login);
 router.get('/signup', controller.signup);
 router.post('/signup', registerValidation, userController.registerUser);
-router.post('/login', userController.loginUser);
+router.post('/login', loginValidation, userController.loginUser);
 router.get('/account', controller.viewAccount);
 router.get('/view/entry', controller.viewEntry);
 router.get('/delete/entry', controller.deleteEntry);
