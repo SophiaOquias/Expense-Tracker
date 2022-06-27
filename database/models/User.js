@@ -32,5 +32,5 @@ exports.getById = function(id,next) {
 exports.getOne = function(query, next){
     User.findOne(query, function(err, user) {
         next(err, user);
-    })
+    });
 };

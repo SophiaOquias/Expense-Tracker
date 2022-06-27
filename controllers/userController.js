@@ -7,46 +7,43 @@ exports.registerUser = (req, res) => {
   const errors = validationResult(req);
 
   if (errors.isEmpty()) {
-    const {email, username, password} = req.body;
+    const {username, email, password} = req.body;
 
     userModel.getOne({email: email}, (err, result) => {
       if (result) {
         console.log(result);
-
+        //if email already exists: throw error
         req.flash('error_msg', 'User already exists. Please login');
         res.redirect('/login');
       } else {
-        const saltRounds = 10;
-        
-        //Hash password
+        //create user
+        const saltRouds = 10;
         bcrypt.hash(password, saltRounds, (err, hashed) => {
           const newUser = {
-            email,
             username,
+            email,
             password: hashed
           };
 
           userModel.create(newUser, (err, user) => {
             if (err) {
-              req.flash('error_msg', 'Could not create user. Please try again.');
-              res.redirect('signup');
-            } else {
-              req.flash('success_msg', 'You are now registered!');
+              req.flash('error_msg', 'Could not create user. Please try again');
+              res.redirect('/register');
+            }
+            else {
+              req.flash('success_msg', 'You are now registered! Please login');
               res.redirect('/login');
             }
-          })
-        })
-
+          });
+        });
       }
     })
   } else {
-    //error
     const messages = errors.array().map((item) => item.msg);
+
     req.flash('error_msg', messages.join(' '));
-    console.log(messages.join(' '));
     res.redirect('/signup');
   }
-
 }
 
 exports.loginUser = (req, res) => {
