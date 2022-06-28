@@ -1,5 +1,6 @@
 const { check } = require("express-validator");
 const userModel = require("../database/models/User");
+const postModel = require("../database/models/Post");
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcrypt');
 
@@ -108,7 +109,11 @@ exports.logoutUser = (req, res) => {
 };
 
 exports.viewAccount = function (req, res) {
-  res.render("view-account", { layout: "no-new-entry" });
+  res.render("view-account", { 
+    layout: "no-new-entry",
+    email: req.session.email,
+    username: req.session.username
+  });
 }
 
 exports.editAccount = function (req, res) {
@@ -116,4 +121,9 @@ exports.editAccount = function (req, res) {
 }
 
 exports.deleteAccount = function (req, res) {
+  userModel.deleteUser(req.session.user, function() {
+    postModel.deleteMany(req.session.user, function() {
+      res.redirect('/logout');
+    })
+  });
 }

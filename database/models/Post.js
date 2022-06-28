@@ -43,3 +43,10 @@ exports.editEntry = function(id, edits) {
         if(err) throw err; 
     });
 }
+
+exports.deleteMany = function(id, next) {
+    postModel.deleteMany({ user: id }).exec(function(err, result) {
+        if(err) throw err; 
+        next(result);
+    });
+}

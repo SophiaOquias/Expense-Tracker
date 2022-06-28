@@ -1,6 +1,5 @@
 // import database stuff
 const postModel = require("../database/models/Post");
-const userModel = require("../database/models/User");
 const path = require('path');
 const { ObjectId } = require('mongodb');
 

@@ -33,8 +33,8 @@ exports.getOne = function(query, next){
     });
 };
 
-exports.deleteUser = function(username, next) {
-    userModel.findOneAndDelete({ username: username }).exec(function(err, result) {
+exports.deleteUser = function(id, next) {
+    userModel.findOneAndDelete({ _id: id }).exec(function(err, result) {
         if(err) throw err; 
         next(result);
     });

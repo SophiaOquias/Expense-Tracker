@@ -20,7 +20,7 @@ router.post('/login', isPublic, loginValidation, userController.loginUser);
 router.get('/logout', isPrivate, userController.logoutUser);
 router.get('/account', userController.viewAccount);
 router.get('/account/edit', userController.editAccount)
-router.delete('/account/delete', isPrivate, userController.deleteAccount);
+router.get('/account/delete', isPrivate, userController.deleteAccount);
 router.get('/view/entry', controller.viewEntry);
 router.get('/delete/entry', controller.deleteEntry);
 router.get('/edit/entry', controller.getEditEntry);
