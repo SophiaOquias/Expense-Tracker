@@ -66,12 +66,13 @@ exports.loginUser = (req, res) => {
         if (User) {
           // User found!
     
-          bcrypt.compare(password, user.password, (err, result) => {
+          bcrypt.compare(password, User.password, (err, result) => {
             //passwords match (result == true)
             if (result) {
               //update session object once matched
-              req.session.user = user._id;
-              req.session.name = user.name;
+              req.session.user = User._id;
+              req.session.name = User.name;
+              req.session.email = User.email; 
 
               console.log(req.session);
 

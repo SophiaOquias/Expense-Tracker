@@ -2,19 +2,18 @@
     <h1>Welcome!</h1>
 
     <div id="loginform">
-        <form>
+        <form action="/login" method="post">
             <label>Username</label><br>
-            <input id="username" type="text"><br>
+            <input name="username" id="username" type="text"><br>
             <label>Password</label><br>
-            <input id="password" type="password">
+            <input name="password" id="password" type="password">
+            <p>Don't have an account? Click here to <a href="/signup">Sign Up</a>!</p>
+            <div class="container">
+                <div class="center">
+                    <button type="submit">Log In</button>
+                </div>
+            </div>
         </form>
-        <p>Don't have an account? Click here to <a href="/signup">Sign Up</a>!</p>
-    </div>
-
-    <div class="container">
-        <div class="center">
-            <button onclick="location.href='/login'">Log In</button>
-        </div>
     </div>
 
     <div id='error'>

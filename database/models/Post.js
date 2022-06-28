@@ -7,7 +7,8 @@ const PostSchema = new mongoose.Schema({
     description: String,
     amount: Number,
     notes: String,
-    ORnumber: String
+    ORnumber: String,
+    user: String // user email
 });
 
 const postModel = mongoose.model('Post', PostSchema);
