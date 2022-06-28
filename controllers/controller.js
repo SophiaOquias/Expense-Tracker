@@ -4,14 +4,14 @@ const path = require('path');
 const { ObjectId } = require('mongodb');
 
 exports.getAllEntries = function (req, res) {
-    postModel.getAllEntries({}, function (entries) {
+    postModel.getAllEntries({ user: req.session.email }, function (entries) {
         res.render("index", { entry: entries });
     });
 }
 
 // this gets the balance, total expense, and total income 
 exports.getTotal = function (req, res) {
-    postModel.getAllEntries({}, function (entries) {
+    postModel.getAllEntries({ user: req.session.email }, function (entries) {
         res.status(200).send(entries);
     });
 }
@@ -31,7 +31,8 @@ exports.addExpense = function (req, res) {
         description: req.body.description,
         amount: req.body.amount,
         notes: req.body.notes,
-        ORnumber: req.body.ORnumber
+        ORnumber: req.body.ORnumber,
+        user: req.session.email
     }
 
     postModel.createEntry(expense); 
@@ -39,14 +40,22 @@ exports.addExpense = function (req, res) {
 
 // gets all entries in db that are listed as expenses
 exports.getExpenses = function(req, res) {
-    postModel.getAllEntries({ entryType: "expense" }, function(entry) {
+    const query = {
+        entryType: "expense",
+        user: req.session.email
+    }
+    postModel.getAllEntries(query, function(entry) {
         res.render("view-expenses", { expense: entry })
     });
 }
 
 // gets all entries in db that are listed as savings 
 exports.getSavings = function(req, res) {
-    postModel.getAllEntries({ entryType: "savings" }, function (entry) {
+    const query = {
+        entryType: "savings",
+        user: req.session.email
+    }
+    postModel.getAllEntries(query, function (entry) {
         res.render("view-savings", { saving: entry })
     });
 }
@@ -114,7 +123,8 @@ exports.search = function(req, res) {
             { date: { $regex: req.query.key } },
             { description: { $regex: req.query.key } },
             { category: { $regex: req.query.key } }
-        ]
+        ],
+        user: req.session.email
     }
 
     postModel.getAllEntries(expenses, function(result) {
