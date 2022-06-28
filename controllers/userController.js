@@ -71,7 +71,7 @@ exports.loginUser = (req, res) => {
             if (result) {
               //update session object once matched
               req.session.user = User._id;
-              req.session.name = User.name;
+              req.session.username = User.username;
               req.session.email = User.email; 
 
               console.log(req.session);
@@ -95,5 +95,14 @@ exports.loginUser = (req, res) => {
 
       req.flash('error_msg', messages.join(' '));
       res.redirect('/login');
+  }
+};
+
+exports.logoutUser = (req, res) => {
+  if (req.session) {
+    req.session.destroy(() => {
+      res.clearCookie('connect.sid');
+      res.redirect('/login');
+    });
   }
 };
