@@ -32,3 +32,10 @@ exports.getOne = function(query, next){
         next(err, user);
     });
 };
+
+exports.deleteUser = function(username, next) {
+    userModel.findOneAndDelete({ username: username }).exec(function(err, result) {
+        if(err) throw err; 
+        next(result);
+    });
+}

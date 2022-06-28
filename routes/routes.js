@@ -19,6 +19,8 @@ router.post('/signup', isPublic, registerValidation, userController.registerUser
 router.post('/login', isPublic, loginValidation, userController.loginUser);
 router.get('/logout', isPrivate, userController.logoutUser);
 router.get('/account', controller.viewAccount);
+router.get('/account/edit', controller.editAccount)
+router.delete('/account/delete', isPrivate, controller.deleteAccount);
 router.get('/view/entry', controller.viewEntry);
 router.get('/delete/entry', controller.deleteEntry);
 router.get('/edit/entry', controller.getEditEntry);

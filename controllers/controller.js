@@ -1,5 +1,6 @@
 // import database stuff
 const postModel = require("../database/models/Post");
+const userModel = require("../database/models/User");
 const path = require('path');
 const { ObjectId } = require('mongodb');
 
@@ -70,6 +71,13 @@ exports.signup = function (req, res) {
 
 exports.viewAccount = function (req, res) {
     res.render("view-account", { layout: "no-new-entry" });
+}
+
+exports.editAccount = function (req, res) {
+    res.render("edit-account", {layout: "no-new-entry"});
+}
+
+exports.deleteAccount = function(req, res) {
 }
 
 // VIEW ENTRY STUFF
