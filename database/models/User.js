@@ -8,13 +8,11 @@ const UserSchema = new mongoose.Schema({
     savingsGoal: Number
 });
 
-const User = mongoose.model('User', UserSchema);
-
-module.exports = User;
+const userModel = mongoose.model('User', UserSchema);
 
 //Save user given a validated object
 exports.create = function(obj, next) {
-    const user = new User(obj);
+    const user = new userModel(obj);
 
     user.save(function(err, user) {
         next(err, user);
@@ -23,14 +21,14 @@ exports.create = function(obj, next) {
 
 //Retrieve user based on ID
 exports.getById = function(id,next) {
-    User.findById(id, function(err,user){
+    userModel.findById(id, function(err,user){
         next(err, user);
     })
 };
 
 //Retrieve only one user based on query
 exports.getOne = function(query, next){
-    User.findOne(query, function(err, user) {
+    userModel.findOne(query, function(err, user) {
         next(err, user);
     });
 };

@@ -19,7 +19,7 @@ exports.registerUser = (req, res) => {
         res.redirect('/login');
       } else {
         //create user
-        const saltRouds = 10;
+        const saltRounds = 10;
         bcrypt.hash(password, saltRounds, (err, hashed) => {
           const newUser = {
             username,
@@ -29,8 +29,9 @@ exports.registerUser = (req, res) => {
 
           userModel.create(newUser, (err, user) => {
             if (err) {
+              console.log(err);
               req.flash('error_msg', 'Could not create user. Please try again');
-              res.redirect('/register');
+              res.redirect('/signup');
             }
             else {
               req.flash('success_msg', 'You are now registered! Please login');

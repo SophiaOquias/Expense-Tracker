@@ -9,11 +9,11 @@ const registerValidation = [
     body('username').not().isEmpty().withMessage("Please provide a username"),
 
     //Password check
-    body('password1').not().isEmpty().withMessage("Please provide a password"),
+    body('password').not().isEmpty().withMessage("Please provide a password"),
 
-    body('password2').not().isEmpty().withMessage("Please provide a password")
+    body('confirmPass').not().isEmpty().withMessage("Please provide a password")
     .custom((value, {req})=> {
-        if (value !== req.body.password1) {
+        if (value !== req.body.password) {
             throw new Error("Passwords must match");
         }
         return true;
