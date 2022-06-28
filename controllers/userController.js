@@ -106,3 +106,14 @@ exports.logoutUser = (req, res) => {
     });
   }
 };
+
+exports.viewAccount = function (req, res) {
+  res.render("view-account", { layout: "no-new-entry" });
+}
+
+exports.editAccount = function (req, res) {
+  res.render("edit-account", { layout: "no-new-entry" });
+}
+
+exports.deleteAccount = function (req, res) {
+}

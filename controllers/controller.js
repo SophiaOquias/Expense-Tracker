@@ -5,14 +5,14 @@ const path = require('path');
 const { ObjectId } = require('mongodb');
 
 exports.getAllEntries = function (req, res) {
-    postModel.getAllEntries({ user: req.session.email }, function (entries) {
+    postModel.getAllEntries({ user: req.session.user }, function (entries) {
         res.render("index", { entry: entries });
     });
 }
 
 // this gets the balance, total expense, and total income 
 exports.getTotal = function (req, res) {
-    postModel.getAllEntries({ user: req.session.email }, function (entries) {
+    postModel.getAllEntries({ user: req.session.user }, function (entries) {
         res.status(200).send(entries);
     });
 }
@@ -33,7 +33,7 @@ exports.addExpense = function (req, res) {
         amount: req.body.amount,
         notes: req.body.notes,
         ORnumber: req.body.ORnumber,
-        user: req.session.email
+        user: req.session.user
     }
 
     postModel.createEntry(expense); 
@@ -43,7 +43,7 @@ exports.addExpense = function (req, res) {
 exports.getExpenses = function(req, res) {
     const query = {
         entryType: "expense",
-        user: req.session.email
+        user: req.session.user
     }
     postModel.getAllEntries(query, function(entry) {
         res.render("view-expenses", { expense: entry })
@@ -54,7 +54,7 @@ exports.getExpenses = function(req, res) {
 exports.getSavings = function(req, res) {
     const query = {
         entryType: "savings",
-        user: req.session.email
+        user: req.session.user
     }
     postModel.getAllEntries(query, function (entry) {
         res.render("view-savings", { saving: entry })
@@ -67,17 +67,6 @@ exports.login = function (req, res) {
 
 exports.signup = function (req, res) {
     res.render("signup", { layout: "login-layout" });
-}
-
-exports.viewAccount = function (req, res) {
-    res.render("view-account", { layout: "no-new-entry" });
-}
-
-exports.editAccount = function (req, res) {
-    res.render("edit-account", {layout: "no-new-entry"});
-}
-
-exports.deleteAccount = function(req, res) {
 }
 
 // VIEW ENTRY STUFF
@@ -132,7 +121,7 @@ exports.search = function(req, res) {
             { description: { $regex: req.query.key } },
             { category: { $regex: req.query.key } }
         ],
-        user: req.session.email
+        user: req.session.user
     }
 
     postModel.getAllEntries(expenses, function(result) {
