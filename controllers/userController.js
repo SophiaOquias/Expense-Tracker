@@ -110,25 +110,32 @@ exports.logoutUser = (req, res) => {
 };
 
 exports.viewAccount = function (req, res) {
-  res.render("view-account", { 
-    layout: "no-new-entry",
-    email: req.session.email,
-    username: req.session.username
+  userModel.getById(req.session.user, function(err, data) {
+    res.render("view-account", {
+      layout: "no-new-entry",
+      email: data.email,
+      username: data.username
+    });
   });
 }
 
 exports.editAccount = function (req, res) {
-  res.render("edit-account", { layout: "no-new-entry" });
+  res.render("edit-account", { 
+    layout: "no-new-entry", 
+    email: req.session.email,
+    username: req.session.username});
 }
 
 exports.confirmEditAccount = function(req, res) {
   var userEdits = {
       email: req.body.email,
-      username: req.body.username,
-      password: req.body.password
+      username: req.body.username
   }
+  console.log(userEdits); 
 
-  userModel.editUser(req.session.user, {$set: userEdits}, function(results) {
+  userModel.editUser({_id: ObjectId(req.session.user)}, {$set: userEdits}, function(results) {
+    req.session.email = results.email;
+    req.session.username = results.username; 
     res.redirect('/account');
     console.log(results);
   });
