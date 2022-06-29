@@ -39,3 +39,10 @@ exports.deleteUser = function(id, next) {
         next(result);
     });
 }
+
+exports.editUser = function(id, edits, next) {
+    userModel.findByIdAndUpdate(id,edits).exec(function(err, results) {
+        if (err) throw err;
+        next(results);
+    });
+}

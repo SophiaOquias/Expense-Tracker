@@ -2,6 +2,7 @@ const { check } = require("express-validator");
 const userModel = require("../database/models/User");
 const postModel = require("../database/models/Post");
 const {validationResult} = require('express-validator');
+const {ObjectId} = require('mongodb');
 const bcrypt = require('bcrypt');
 
 exports.registerUser = (req, res) => {
@@ -118,6 +119,19 @@ exports.viewAccount = function (req, res) {
 
 exports.editAccount = function (req, res) {
   res.render("edit-account", { layout: "no-new-entry" });
+}
+
+exports.confirmEditAccount = function(req, res) {
+  var userEdits = {
+      email: req.body.email,
+      username: req.body.username,
+      password: req.body.password
+  }
+
+  userModel.editUser(req.session.user, {$set: userEdits}, function(results) {
+    res.redirect('/account');
+    console.log(results);
+  });
 }
 
 exports.deleteAccount = function (req, res) {
