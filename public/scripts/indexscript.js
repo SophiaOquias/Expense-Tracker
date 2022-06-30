@@ -40,17 +40,21 @@ $(document).ready(function() {
             var savingsGoal = data.savingsGoal; 
 
             if(totalExpense > budgetGoal) {
-                $("#budget").css("background-color", "var(--cancel)");
+                $("#budget").css("border-top-color", "var(--cancel)");
+                $("#budget-msg").text("Budget exceeded")
             }
             else {
-                $("#budget").css("background-color", "var(--box-color)");
+                $("#budget").css("border-top-color", "var(--box-color)");
+                $("#budget-msg").text("");
             }
 
             if (totalSavings >= savingsGoal) {
-                $("#savingsgoal").css("background-color", "var(--good)");
+                $("#savingsgoal").css("border-top-color", "var(--good)");
+                $("#savings-msg").text("Savings goal reached!")
             }
             else {
-                $("#savingsgoal").css("background-color", "var(--box-color)");
+                $("#savingsgoal").css("border-top-color", "var(--box-color)");
+                $("#savings-msg").text("")
             }
         }); 
     });
@@ -90,10 +94,12 @@ $(document).ready(function() {
 
                 // if new budget is lesser than total expenses, box turns red 
                 if (totalExpense > newBudget) {
-                    $("#budget").css("background-color", "var(--cancel)");
+                    $("#budget").css("border-top-color", "var(--cancel)");
+                    $("#budget-msg").text("Budget exceeded")
                 }
                 else {
-                    $("#budget").css("background-color", "var(--box-color)");
+                    $("#budget").css("border-top-color", "var(--box-color)");
+                    $("#budget-msg").text("");
                 }
 
                 // show edits in page 
@@ -135,10 +141,12 @@ $(document).ready(function() {
 
                 // if savings goal is reached or exceeded, box turns green
                 if (totalSavings >= newSavings) {
-                    $("#savingsgoal").css("background-color", "var(--good)");
+                    $("#savingsgoal").css("border-top-color", "var(--good)");
+                    $("#savings-msg").text("Savings goal reached!")
                 }
                 else {
-                    $("#savingsgoal").css("background-color", "var(--box-color)");
+                    $("#savingsgoal").css("border-top-color", "var(--box-color)");
+                    $("#savings-msg").text("")
                 }
 
                 // show edits in page 

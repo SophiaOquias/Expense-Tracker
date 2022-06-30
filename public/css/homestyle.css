@@ -25,6 +25,7 @@ section {
     box-sizing: border-box;
     float: left;
     padding-left: 20px;
+    padding-right: 20px;
     padding-top: 15px;
     margin: 0.5%;
 }
@@ -46,7 +47,11 @@ section {
     font-size: 8pt;
     color: var(--text-color);
     float: right;
-    padding-right: 30px;
+}
+
+.edit:hover {
+    cursor: pointer; 
+    text-decoration: underline; 
 }
 
 #balance > h1 {
@@ -62,34 +67,49 @@ section {
     padding-right: 30px; 
 }
 
+.container {
+    padding-top: 15px;
+    padding-left: 20px; 
+    padding-right: 20px;
+    border-top-color: var(--box-color);
+    border-radius: 5px;
+}
+
+.container > span {
+    font-size: 8pt; 
+}
+
 /* BUDGET */
+#budget {
+    border-top-style: solid; 
+    border-top-width: thick; 
+}
 
 #budget > h2 {
-    padding-top: 20px;
-    padding-bottom: 5px;
-    padding-left: 20px;
+    padding-bottom: 10px;
     font-size: 16pt;
 }
 
 #budget > h1 {
     padding-top: 10px;
     padding-bottom: 5px;
-    padding-left: 20px;
 }
 
 /* SAVINGS GOAL */
 
+#savingsgoal {
+    border-top-style: solid;
+    border-top-width: thick;
+}
+
 #savingsgoal > h2 {
-    padding-top: 20px;
-    padding-bottom: 5px;
-    padding-left: 20px;
+    padding-bottom: 10px;
     font-size: 16pt;
 }
 
 #savingsgoal > h1 {
     padding-top: 10px;
     padding-bottom: 5px;
-    padding-left: 20px;
 }
 
 ::placeholder {
