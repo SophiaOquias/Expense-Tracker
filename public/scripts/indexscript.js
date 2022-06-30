@@ -75,4 +75,41 @@ $(document).ready(function() {
         });
     });
 
+    // edit budget goal
+    $("#editsavgoal").click(function () {
+        $.get("edit-savings", function (data, status) {
+            var amount = data.savingsGoal;
+            $("#sgoalamount").html("<input id='newsavings' type='number' value='"
+                + amount + "'>"); // append input elemeent 
+
+            // make edit button invisible 
+            $("#editsavgoal").hide();
+
+            // create done button element
+            var confirmBtn = document.createElement("a");
+            $(confirmBtn).text("done");
+            $(confirmBtn).addClass("edit");
+            $(confirmBtn).attr("id", "confirmsavings");
+            $("#savingsgoal").append(confirmBtn);
+
+            $("#confirmsavings").click(function () {
+                var newSavings = $("#newsavings").val();
+                var doc = { savingsGoal: newSavings };
+
+                $.get("edit-savings/confirm", doc, function (data, status) {
+                    console.log(data);
+                });
+
+                // show edits in page 
+                $("#sgoalamount").html("P" + numberWithCommas(Number(newSavings).toFixed(2)));
+                $("#newsavings").remove(); // remove input element
+                $("#confirmsavings").remove(); // remove done button 
+
+                // unhide edit button 
+                $("#editsavgoal").show();
+
+            });
+        });
+    });
+
 });

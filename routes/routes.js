@@ -8,8 +8,10 @@ const userController = require('../controllers/userController');
 
 // ROUTES
 router.get('/', isPrivate, controller.getAllEntries);
-router.get('/edit-budget', isPrivate, userController.getBudgetGoal);
+router.get('/edit-budget', isPrivate, userController.getGoals);
 router.get('/edit-budget/confirm', isPrivate, userController.confirmEditBudget); 
+router.get('/edit-savings', isPrivate, userController.getGoals);
+router.get('/edit-savings/confirm', isPrivate, userController.confirmEditSavings);
 router.get('/get-total', controller.getTotal);
 router.get('/new-entry', controller.newEntry);
 router.post('/add-expense', controller.addExpense);

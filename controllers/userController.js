@@ -149,7 +149,7 @@ exports.deleteAccount = function (req, res) {
   });
 }
 
-exports.getBudgetGoal = function(req, res) {
+exports.getGoals = function(req, res) {
   userModel.getById(req.session.user, function(err, result) {
     res.status(200).send(result);
     console.log(result);
@@ -163,4 +163,13 @@ exports.confirmEditBudget = function(req, res) {
   userModel.editUser({_id: ObjectId(req.session.user)}, {$set: edits}, function(results) {
     console.log(results);
   });
+}
+
+exports.confirmEditSavings = function(req, res) {
+  var edits = {
+    savingsGoal: req.query.savingsGoal
+  }
+  userModel.editUser({ _id: ObjectId(req.session.user) }, { $set: edits }, function(results) {
+    console.log(results);
+  })
 }
