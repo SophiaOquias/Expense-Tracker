@@ -131,13 +131,11 @@ exports.confirmEditAccount = function(req, res) {
       email: req.body.email,
       username: req.body.username
   }
-  console.log(userEdits); 
 
   userModel.editUser({_id: ObjectId(req.session.user)}, {$set: userEdits}, function(results) {
     req.session.email = results.email;
     req.session.username = results.username; 
     res.redirect('/account');
-    console.log(results);
   });
 }
 
