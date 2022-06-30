@@ -7,12 +7,13 @@ $(document).ready(function() {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    var totalExpense = 0;
+    var totalIncome = 0;
+    var totalSavings = 0; 
+
     // get balance 
     $.get('get-total', function(data, status) {
         console.log(data);
-
-        var totalExpense = 0;
-        var totalIncome = 0; 
 
         data.forEach((item, i) => {
 
@@ -20,6 +21,8 @@ $(document).ready(function() {
                 totalExpense += item.amount;
             else if(item.entryType == "income")
                 totalIncome += item.amount; 
+            else if(item.entryType == "savings")
+                totalSavings += item.amount; 
         });
 
         var totalBalance = totalIncome - totalExpense; 
@@ -27,7 +30,29 @@ $(document).ready(function() {
         // to .toFixed(2) adds decimal 
         $("#totalExpenses").text("P" + numberWithCommas(totalExpense.toFixed(2)));
         $("#totalIncome").text("P" + numberWithCommas(totalIncome.toFixed(2)));
+        $("#totalSavings").text("P" + numberWithCommas(totalSavings.toFixed(2)))
         $("#balamount").text("P" + numberWithCommas(totalBalance.toFixed(2)));
+
+        // box containing the budget goal will turn red if expenses exceed budget 
+        // and box containing savings goal will turn green if goal is reached 
+        $.get('get-goals', function(data, status) {
+            var budgetGoal = data.budgetGoal;
+            var savingsGoal = data.savingsGoal; 
+
+            if(totalExpense > budgetGoal) {
+                $("#budget").css("background-color", "var(--cancel)");
+            }
+            else {
+                $("#budget").css("background-color", "var(--box-color)");
+            }
+
+            if (totalSavings >= savingsGoal) {
+                $("#savingsgoal").css("background-color", "var(--good)");
+            }
+            else {
+                $("#savingsgoal").css("background-color", "var(--box-color)");
+            }
+        }); 
     });
 
     // search 
@@ -62,6 +87,14 @@ $(document).ready(function() {
                 $.get("edit-budget/confirm", doc, function(data, status) {
                     console.log(data);
                 });
+
+                // if new budget is lesser than total expenses, box turns red 
+                if (totalExpense > newBudget) {
+                    $("#budget").css("background-color", "var(--cancel)");
+                }
+                else {
+                    $("#budget").css("background-color", "var(--box-color)");
+                }
 
                 // show edits in page 
                 $("#budgetamount").html("P" + numberWithCommas(Number(newBudget).toFixed(2)));
@@ -99,6 +132,14 @@ $(document).ready(function() {
                 $.get("edit-savings/confirm", doc, function (data, status) {
                     console.log(data);
                 });
+
+                // if savings goal is reached or exceeded, box turns green
+                if (totalSavings >= newSavings) {
+                    $("#savingsgoal").css("background-color", "var(--good)");
+                }
+                else {
+                    $("#savingsgoal").css("background-color", "var(--box-color)");
+                }
 
                 // show edits in page 
                 $("#sgoalamount").html("P" + numberWithCommas(Number(newSavings).toFixed(2)));

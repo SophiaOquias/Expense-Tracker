@@ -13,6 +13,7 @@ router.get('/edit-budget/confirm', isPrivate, userController.confirmEditBudget);
 router.get('/edit-savings', isPrivate, userController.getGoals);
 router.get('/edit-savings/confirm', isPrivate, userController.confirmEditSavings);
 router.get('/get-total', controller.getTotal);
+router.get('/get-goals', isPrivate, userController.getGoals);
 router.get('/new-entry', controller.newEntry);
 router.post('/add-expense', controller.addExpense);
 router.get('/view-expenses', controller.getExpenses);
