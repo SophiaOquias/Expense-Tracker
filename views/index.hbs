@@ -15,14 +15,14 @@
 
         <div id="budget" class="quickinfo">
             <h2>Budget</h2>
-            <h1><span id="budgetamount">P5,000.00</span></h1>
-            <a id="editbudget" class="edit" onclick="editBudget();">edit</a>
+            <h1><span id="budgetamount">{{currency budgetGoal}}</span></h1>
+            <a id="editbudget" class="edit">edit</a>
         </div>
 
         <div id="savingsgoal" class="quickinfo">
             <h2>Savings Goal</h2>
-            <h1><span id="sgoalamount">P10,000.00</span></h1>
-            <a id="editsavgoal" class="edit" onclick="editSavingsGoal();">edit</a>
+            <h1><span id="sgoalamount">{{currency savingsGoal}}</span></h1>
+            <a id="editsavgoal" class="edit" href="/get-budget">edit</a>
         </div>
     </div>
 

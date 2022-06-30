@@ -26,7 +26,9 @@ exports.registerUser = (req, res) => {
           const newUser = {
             username,
             email,
-            password: hashed
+            password: hashed,
+            budgetGoal: 0,
+            savingsGoal: 0
           };
 
           userModel.create(newUser, (err, user) => {
@@ -144,5 +146,21 @@ exports.deleteAccount = function (req, res) {
     postModel.deleteMany(req.session.user, function() {
       res.redirect('/logout');
     })
+  });
+}
+
+exports.getBudgetGoal = function(req, res) {
+  userModel.getById(req.session.user, function(err, result) {
+    res.status(200).send(result);
+    console.log(result);
+  })
+}
+
+exports.confirmEditBudget = function(req, res) {
+  var edits = {
+    budgetGoal: req.query.budgetGoal
+  }
+  userModel.editUser({_id: ObjectId(req.session.user)}, {$set: edits}, function(results) {
+    console.log(results);
   });
 }

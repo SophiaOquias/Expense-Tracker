@@ -1,11 +1,13 @@
 $(document).ready(function() {
 
+    // format numbers to have commas 
     function numberWithCommas(number) {
         // regex formula from
         // https://www.delftstack.com/howto/javascript/javascript-add-commas-to-number/
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    // get balance 
     $.get('get-total', function(data, status) {
         console.log(data);
 
@@ -28,42 +30,49 @@ $(document).ready(function() {
         $("#balamount").text("P" + numberWithCommas(totalBalance.toFixed(2)));
     });
 
+    // search 
     $("#search").keydown(function (event) {
         if (event.keyCode === 13) {
             var input = $("#search").val();
             window.open("/search?key=" + input, "_self"); 
         }
     });
-})
+   
+    // edit budget goal
+    $("#editbudget").click(function() {
+        $.get("edit-budget", function (data, status) {
+            var amount = data.budgetGoal;
+            $("#budgetamount").html("<input id='newbudget' type='number' value='"
+                + amount + "'>"); // append input elemeent 
 
-// TO DO: make this jquery later
+            // make edit button invisible 
+            $("#editbudget").hide();
 
-function editBudget() {
-    var editButton = document.getElementById("editbudget");
-    var amount = document.getElementById("budgetamount");
+            // create done button element
+            var confirmBtn = document.createElement("a");
+            $(confirmBtn).text("done");
+            $(confirmBtn).addClass("edit");
+            $(confirmBtn).attr("id", "confirmbudget");
+            $("#budget").append(confirmBtn);
 
-    if(editButton.innerHTML == "edit"){
-        amount.innerHTML = "<input id='newbudget' type='number'>";
-        editButton.innerHTML = "done";
-    }
-    else {
-        var newBudget = document.getElementById("newbudget").value;
-        amount.innerHTML = "P" + newBudget;
-        editButton.innerHTML = "edit";
-    }
-}
+            $("#confirmbudget").click(function() {
+                var newBudget = $("#newbudget").val();
+                var doc = {budgetGoal: newBudget};
 
-function editSavingsGoal() {
-    var editButton = document.getElementById("editsavgoal");
-    var amount = document.getElementById("sgoalamount");
+                $.get("edit-budget/confirm", doc, function(data, status) {
+                    console.log(data);
+                });
 
-    if(editButton.innerHTML == "edit"){
-        amount.innerHTML = "<input id='newsavgoal' type='number'>";
-        editButton.innerHTML = "done";
-    }
-    else {
-        var newSavGoal = document.getElementById("newsavgoal").value;
-        amount.innerHTML = "P" + newSavGoal;
-        editButton.innerHTML = "edit";
-    }
-}
+                // show edits in page 
+                $("#budgetamount").html("P" + numberWithCommas(Number(newBudget).toFixed(2)));
+                $("#newbudget").remove(); // remove input element
+                $("#confirmbudget").remove(); // remove done button 
+
+                // unhide edit button 
+                $("#editbudget").show();
+                
+            });
+        });
+    });
+
+});
