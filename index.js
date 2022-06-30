@@ -11,9 +11,10 @@ const router = require("./routes/routes")
 const app = new express();
 
 // init server port
-const port = 3000; 
-var server = app.listen(port, function () {
-    console.log("Listening at port " + port + "...");
+//const port = 3000; 
+var PORT = process.env.PORT || 3000;
+var server = app.listen(PORT, function () {
+    console.log("Listening at port " + PORT + "...");
 });
 
 // MONGOOSE stuff 
