@@ -3,4 +3,4 @@
 .env.test
 
 # node modules 
-./node_modules
+node_modules
