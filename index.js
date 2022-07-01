@@ -16,10 +16,15 @@ var server = app.listen(port, function () {
     console.log("Listening at port " + port + "...");
 });
 
-// MONGOOSE stuff 
+// MONGOOSE stuff
+// 'mongodb://localhost/expenseTrackerDB' local url 
+const databaseURL = "mongodb+srv://admin:siomaisiopaosuman@ccapdev-expense-tracker.odf39dh.mongodb.net/expenseTrackerDB?retryWrites=true&w=majority";
+const options = {
+    useNewURLParser: true, 
+    useUnifiedTopology: true
+}
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/expenseTrackerDB',
-{ useNewURLParser: true, useUnifiedTopology: true });
+mongoose.connect(databaseURL, options);
 
 // Initialize data and static folder 
 app.use(express.json());
@@ -41,9 +46,11 @@ app.engine("hbs", exphbs.engine({
     * saveUninitialized: forces a new but unmodified session to be saved to the store
     * cookie: settings for current session cookie
 */
+// mongoUrl: 'mongodb://localhost/expenseTrackerDB'
+
 app.use(session({
     secret: 'l1v3Jesus',
-    store: MongoStore.create({mongoUrl:'mongodb://localhost/expenseTrackerDB'}),
+    store: MongoStore.create({mongoUrl: databaseURL}),
     resave: false,
     saveUninitialized: true,
     cookie: {secure: false, maxAge: 1000 * 60 * 60 * 24 * 7}
