@@ -1,0 +1,25 @@
+#about {
+    margin-top: 2%;
+}
+
+#abouthead, #packagehead{
+    font-size: 60px;
+}
+
+#abouttext1, #abouttext2, #packagelist {
+    font-size: 25px;
+}
+
+#abouttext1, #abouttext2 {
+    padding-top: 2%;
+    text-align: justify;
+}
+
+#package {
+    margin-top: 5%;
+}
+
+#packagelist {
+    padding-top: 1%;
+    padding-left: 1.5%;
+}

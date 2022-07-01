@@ -32,5 +32,6 @@ router.get('/delete/entry', controller.deleteEntry);
 router.get('/edit/entry', controller.getEditEntry);
 router.post('/edit/confirm', controller.confirmEditEntry);
 router.get('/search', controller.search);
+router.get('/about', controller.about);
 
 module.exports = router; 

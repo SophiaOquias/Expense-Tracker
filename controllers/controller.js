@@ -134,3 +134,7 @@ exports.search = function(req, res) {
         res.render("search", { expenses: result })
     });
 }
+
+exports.about = function(req, res) {
+    res.render("about", { layout: "no-new-entry" })
+}
