@@ -54,11 +54,11 @@ app.engine("hbs", exphbs.engine({
 
 app.use(session({
     secret: sessionKey,
-    store: MongoStore.create({mongoUrl: dbURL}),
+    store: MongoStore.create({ mongoUrl: dbURL }),
     resave: false,
     saveUninitialized: true,
     cookie: {secure: false, maxAge: 1000 * 60 * 60 * 24 * 7}
-}))
+}));
 
 //FLASH
 app.use(flash());
