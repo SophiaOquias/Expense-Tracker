@@ -19,6 +19,11 @@ npm run dev
 ```
 3. Open [http://localhost:3000](http://localhost:3000) on your browser to open the app
 
+## Access Sample Data
+Sample data for the app can be accessed through these account credentials
+- username: `mrkrabs`
+- password: `secretformula`
+
 ## Node Packages Used: 
 - express
 - mongodb
