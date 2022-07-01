@@ -1,19 +1,33 @@
-# CCAPDEV_MP
+# Expense Tracker
+
+You can visit the deployed app [here](https://expense-cracker.herokuapp.com/)
 
 ## Members
 - Go, Eldrich
 - Opalla, Rijan
 - Oquias, Sophia
 
+## Installation Instructions 
+To run locally: 
+1. Install all dependencies in `package.json` 
+```shell
+npm install
+```
+2. Run the server using the script defined as 
+```shell
+npm run dev
+```
+3. Open [http://localhost:3000](http://localhost:3000) on your browser to open the app
+
 ## Node Packages Used: 
-- Express
-- MongoDB
-- Mongoose
+- express
+- mongodb
+- mongoose
 - express-handlebars
 - express-session
 - connect-mongo
 - express-validator
 - connect-flash
-
-## Installation Instructions 
-- TODO
+- nodemon
+- bcrypt
+- dotenv
