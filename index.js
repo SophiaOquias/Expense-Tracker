@@ -6,26 +6,29 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 
+const { envPort, sessionKey, dbURL } = require('./config');
+
 const router = require("./routes/routes")
 
 const app = new express();
 
 // init server port
 //const port = 3000; 
-var PORT = process.env.PORT || 3000;
+var PORT = envPort || 3000;
 var server = app.listen(PORT, function () {
     console.log("Listening at port " + PORT + "...");
 });
 
 // MONGOOSE stuff
 // 'mongodb://localhost/expenseTrackerDB' local url 
-const databaseURL = "mongodb+srv://admin:siomaisiopaosuman@ccapdev-expense-tracker.odf39dh.mongodb.net/expenseTrackerDB?retryWrites=true&w=majority";
+// const databaseURL = "mongodb+srv://admin:siomaisiopaosuman@ccapdev-expense-tracker.odf39dh.mongodb.net/expenseTrackerDB?retryWrites=true&w=majority";
+
 const options = {
     useNewURLParser: true, 
     useUnifiedTopology: true
 }
 const mongoose = require('mongoose');
-mongoose.connect(databaseURL, options);
+mongoose.connect(dbURL, options);
 
 // Initialize data and static folder 
 app.use(express.json());
@@ -50,8 +53,8 @@ app.engine("hbs", exphbs.engine({
 // mongoUrl: 'mongodb://localhost/expenseTrackerDB'
 
 app.use(session({
-    secret: 'l1v3Jesus',
-    store: MongoStore.create({mongoUrl: databaseURL}),
+    secret: sessionKey,
+    store: MongoStore.create({mongoUrl: dbURL}),
     resave: false,
     saveUninitialized: true,
     cookie: {secure: false, maxAge: 1000 * 60 * 60 * 24 * 7}
