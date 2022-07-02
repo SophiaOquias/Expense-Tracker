@@ -24,7 +24,7 @@ npm install
 ```
 5. Run the server using the script defined as 
 ```shell
-npm run dev
+npm run server
 ```
 6. Open [http://localhost:3000](http://localhost:3000) on your browser to open the app
 
