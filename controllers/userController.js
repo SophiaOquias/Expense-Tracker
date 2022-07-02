@@ -122,10 +122,13 @@ exports.viewAccount = function (req, res) {
 }
 
 exports.editAccount = function (req, res) {
-  res.render("edit-account", { 
-    layout: "no-new-entry", 
-    email: req.session.email,
-    username: req.session.username});
+  userModel.getById(req.session.user, function (err, data) {
+    res.render("edit-account", {
+      layout: "no-new-entry",
+      email: data.email,
+      username: data.username
+    });
+  });
 }
 
 exports.confirmEditAccount = function(req, res) {
