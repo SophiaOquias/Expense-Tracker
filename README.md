@@ -1,6 +1,7 @@
 # Expense Tracker
 
-You can visit the deployed app [here](https://expense-cracker.herokuapp.com/)
+- You can visit the deployed app [expense-cracker.herokuapp.com](https://expense-cracker.herokuapp.com/)
+- The revised project proposal can also be found here [CCAPDEV Project Proposal](CCAPDEV%20Project%20Proposal.pdf)
 
 ## Members
 - Go, Eldrich
