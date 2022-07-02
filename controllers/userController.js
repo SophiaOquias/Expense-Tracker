@@ -132,16 +132,28 @@ exports.editAccount = function (req, res) {
 }
 
 exports.confirmEditAccount = function(req, res) {
-  var userEdits = {
+  const errors = validationResult(req);
+
+  console.log(errors);
+
+  if(errors.isEmpty()) {
+    var userEdits = {
       email: req.body.email,
       username: req.body.username
-  }
+    }
 
-  userModel.editUser({_id: ObjectId(req.session.user)}, {$set: userEdits}, function(results) {
-    req.session.email = results.email;
-    req.session.username = results.username; 
-    res.redirect('/account');
-  });
+    userModel.editUser({ _id: ObjectId(req.session.user) }, { $set: userEdits }, function (results) {
+      req.session.email = results.email;
+      req.session.username = results.username;
+      res.redirect('/account');
+    });
+  }
+  else {
+    const messages = errors.array().map((item) => item.msg);
+
+    req.flash('error_msg', messages.join(' '));
+    res.redirect('/account/edit');
+  }
 }
 
 exports.deleteAccount = function (req, res) {

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {registerValidation, loginValidation} = require('../public/scripts/validator.js');
+const {registerValidation, loginValidation, editAccountValidation} = require('../public/scripts/validator.js');
 const { isPublic, isPrivate } = require('../middlewares/checkAuth.js');
 
 // importing controller
@@ -25,7 +25,7 @@ router.post('/login', isPublic, loginValidation, userController.loginUser);
 router.get('/logout', isPrivate, userController.logoutUser);
 router.get('/account', userController.viewAccount);
 router.get('/account/edit', userController.editAccount)
-router.post('/account/edit/confirm', userController.confirmEditAccount);
+router.post('/account/edit/confirm', editAccountValidation, userController.confirmEditAccount);
 router.get('/account/delete', isPrivate, userController.deleteAccount);
 router.get('/view/entry', controller.viewEntry);
 router.get('/delete/entry', controller.deleteEntry);

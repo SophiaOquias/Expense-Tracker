@@ -28,4 +28,13 @@ const loginValidation = [
     body('password').not().isEmpty().withMessage("Password is required.")
 ];
 
-module.exports = {registerValidation, loginValidation};
+const editAccountValidation = [
+    //Email check
+    body('email').not().isEmpty().withMessage("Please fill out the email section.")
+        .isEmail().withMessage("Please provide a valid email address."),
+
+    //Username check
+    body('username').not().isEmpty().withMessage("Please provide a username")
+]
+
+module.exports = {registerValidation, loginValidation, editAccountValidation};
