@@ -28,6 +28,8 @@ npm run server
 ```
 6. Open [http://localhost:3000](http://localhost:3000) on your browser to open the app
 
+**Note:** .env file was included in repository to aid local setup of app using node
+
 ## Access Sample Data
 Sample data for the app can be accessed through these account credentials
 - username: `mrkrabs`
