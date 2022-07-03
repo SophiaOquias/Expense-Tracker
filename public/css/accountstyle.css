@@ -29,6 +29,14 @@ button {
     border: 0px;
 }
 
+button:disabled {
+    background-color: var(--secondary);
+}
+
+button[disabled]:hover {
+    cursor: default; 
+}
+
 button:hover {
     cursor: pointer;
 }
