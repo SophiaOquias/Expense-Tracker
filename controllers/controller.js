@@ -74,7 +74,7 @@ exports.getIncome = function (req, res) {
         user: req.session.user
     }
     postModel.getAllEntries(query, function (entry) {
-        res.render("view-income", { saving: entry })
+        res.render("view-income", { income: entry })
     });
 }
 
