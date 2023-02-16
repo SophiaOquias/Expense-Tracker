@@ -67,6 +67,17 @@ exports.getSavings = function(req, res) {
     });
 }
 
+// gets all entries in db that are listed as income 
+exports.getIncome = function (req, res) {
+    const query = {
+        entryType: "income",
+        user: req.session.user
+    }
+    postModel.getAllEntries(query, function (entry) {
+        res.render("view-income", { saving: entry })
+    });
+}
+
 exports.login = function (req, res) {
     res.render("login", { layout: "login-layout" });
 }

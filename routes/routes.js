@@ -18,6 +18,7 @@ router.get('/new-entry', isPrivate, controller.newEntry);
 router.post('/add-expense', isPrivate, controller.addExpense);
 router.get('/view-expenses', isPrivate, controller.getExpenses);
 router.get('/view-savings', isPrivate, controller.getSavings);
+router.get('/view-income', isPrivate, controller.getIncome);
 router.get('/login', isPublic, controller.login);
 router.get('/signup', isPublic, controller.signup);
 router.post('/signup', isPublic, registerValidation, userController.registerUser);

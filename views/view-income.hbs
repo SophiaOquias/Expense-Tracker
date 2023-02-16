@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="css/viewstyle.css">
+
+<section>
+    <span id="entry">Entries</span>
+    <div id="entrysect">
+        {{!-- insert entries here --}}
+        {{#each income}}
+            {{> entry this}}
+        {{/each}}
+    </div>
+
+</section>
