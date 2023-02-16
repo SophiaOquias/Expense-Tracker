@@ -20,7 +20,7 @@ var server = app.listen(PORT, function () {
 });
 
 // MONGOOSE stuff
-// 'mongodb://localhost/expenseTrackerDB' local url 
+// 'mongodb://localhost/expenseTrackerDB' local url
 // const databaseURL = "mongodb+srv://admin:siomaisiopaosuman@ccapdev-expense-tracker.odf39dh.mongodb.net/expenseTrackerDB?retryWrites=true&w=majority";
 
 const options = {
